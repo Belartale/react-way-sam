@@ -2,8 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 //jsx
-import Header from "./js/header.js";
-import Main from "./js/main.js";
+import Header from "./js/header";
+import Main from "./js/main";
 
 const App = () => {
   return (
