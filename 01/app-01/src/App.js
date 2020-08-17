@@ -1,16 +1,17 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import Header from "./components/Header";
+import Nav from "./components/Nav";
+import Profile from "./components/Profile";
 //jsx
-import Header from "./js/header";
-import Main from "./js/main";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="wrapper-grid">
       <Header />
-      <Main />
-      <Footer />
+      <Nav />
+      <Profile />
     </div>
   );
 };
