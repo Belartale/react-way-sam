@@ -1,28 +1,43 @@
 :root {
-  --color-green: rgba(218, 218, 218, 0.692);
+	/*fonts*/
+	--roboro: "Roboto", sans-serif;
+	--color-green: rgba(218, 218, 218, 0.692);
+}
+html,
+body {
+	font-size: 10px;
 }
 .adaptive-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 .wrapper-grid {
-  display: grid;
-  grid-template: [start] "header header" 80px [row2] [row2] "nav aside" 1fr [row-end] / 2fr 10fr;
-  grid-gap: 10px;
+	display: grid;
+	grid-template: [start] "header header" 80px [row2] [row2] "nav aside" 1fr [row-end] / 2fr 10fr;
+	grid-gap: 10px;
 }
 .header {
-  grid-area: header;
-  background-color: var(--color-green);
+	grid-area: header;
+	padding: 0rem 3em;
+	background-color: var(--color-green);
 }
 .header img {
-  width: 80px;
+	width: 80px;
 }
 .nav {
-  grid-area: nav;
-  background-color: var(--color-green);
+	grid-area: nav;
+	background-color: var(--color-green);
 }
 .aside {
-  grid-area: aside;
-  background-color: var(--color-green);
+	grid-area: aside;
+	background-color: var(--color-green);
+}
+
+.logo {
+	min-width: 1px;
+}
+.logo__inside {
+	font-family: var(--roboto);
+	font-size: 3em;
 }

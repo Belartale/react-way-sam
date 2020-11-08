@@ -3,18 +3,18 @@ import React from "react";
 const Nav = () => {
   return (
     <nav className="nav">
-      <ul>
-        <li>
-          <a>profile</a>
+      <ul className="list">
+        <li className="list__item">
+          <a className="link"><p className="caption">profile</p></a>
         </li>
-        <li>
-          <a>mess</a>
+        <li className="list__item">
+          <a className="link"><p className="caption">mess</p></a>
         </li>
-        <li>
-          <a>news</a>
+        <li className="list__item">
+          <a className="link"><p className="caption">news</p></a>
         </li>
-        <li>
-          <a>music</a>
+        <li className="list__item">
+          <a className="link"><p className="caption">music</p></a>
         </li>
       </ul>
     </nav>
