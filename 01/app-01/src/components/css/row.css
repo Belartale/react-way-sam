@@ -1,0 +1,13 @@
+:root {
+	--row_margin: 0px -10px;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin: var(--row_margin);
+}
+
+.row--align_center {
+	align-items: center;
+}
