@@ -10,7 +10,7 @@ body {
 
 .wrapper__grid_main {
 	display: grid;
-	grid-template: [start] "header header" 80px [row2] [row2] "nav aside" 1fr [row-end] / 2fr 10fr;
+	grid-template: [start] "header header" 80px [row2] [row2] "nav content" 1fr [row-end] / 2fr 10fr;
 	grid-gap: 10px;
 }
 
@@ -34,7 +34,7 @@ body {
 	background-color: var(--color-green);
 }
 
-.aside {
-	grid-area: aside;
+.content {
+	grid-area: content;
 	background-color: var(--color-green);
 }
