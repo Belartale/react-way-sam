@@ -27,7 +27,7 @@ const App = () => {
 			<div className="wrapper__grid_main">
 				<Header />
 				<Nav />
-				<div className="content">
+				<div className="content content--padding_sm">
 					<Route path="/profile" component={Profile} />
 					<Route path="/dialogs" component={Dialogs} />
 					<Route path="/news" component={News} />

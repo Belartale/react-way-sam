@@ -4,7 +4,6 @@
 }
 
 .cell {
-	min-width: 1px;
 	padding: var(--cell_padding);
 	margin: var(--cell_margin);
 }
@@ -44,6 +43,9 @@
 .cell--60 {
 	width: 60%;
 }
+.cell--65 {
+	width: 65%;
+}
 .cell--70 {
 	width: 70%;
 }
@@ -63,5 +65,5 @@
 	width: 95%;
 }
 .cell--100 {
-	width: 70%;
+	width: 100%;
 }

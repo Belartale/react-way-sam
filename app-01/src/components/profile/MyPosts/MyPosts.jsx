@@ -14,7 +14,10 @@ const MyPosts = () => {
 				></textarea>
 				<button className="control">Отправить</button>
 			</form>
-			<Post message="one" likes="12" />
+			<Post
+				message="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "
+				likes="12"
+			/>
 			<Post message="two" likes="1" />
 			<Post />
 		</div>

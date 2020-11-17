@@ -1,11 +1,12 @@
 :root {
-	--row_margin: 0px -10px;
+	--row_margin--sm: 0px -10px;
 }
 
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	margin: var(--row_margin);
+	margin: var(--row_margin--sm);
+	/* margin: 0px -10px; */
 }
 
 .row--align_center {
