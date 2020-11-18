@@ -12,12 +12,12 @@ const Post = (props) => {
 					/>
 				</div>
 				<div className="cell cell--90">
-					<p>{props.message}</p>
+					<p className="caption caption--size_3">{props.message}</p>
 				</div>
 			</div>
 			<div className="row">
 				<div className="cell cell--100">
-					<p>like {props.likes}</p>
+					<p className="caption caption--size_3">like {props.likes}</p>
 				</div>
 			</div>
 		</div>

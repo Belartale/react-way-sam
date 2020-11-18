@@ -1,0 +1,8 @@
+.control {
+	min-width: 1px;
+}
+
+.control__btn {
+	background: transparent;
+	border: none;
+}

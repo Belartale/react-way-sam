@@ -12,3 +12,6 @@
 .row--align_center {
 	align-items: center;
 }
+.row--justify_center {
+	justify-content: center;
+}

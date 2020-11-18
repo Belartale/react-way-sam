@@ -1,11 +1,21 @@
 :root {
 	/*fonts*/
 	--roboro: "Roboto", sans-serif;
-	--color-green: rgba(218, 218, 218, 0.692);
+	--color_page: rgb(225, 225, 225);
 }
 html,
 body {
 	font-size: 10px;
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }
 
 .wrapper__grid_main {
@@ -17,11 +27,9 @@ body {
 .header {
 	grid-area: header;
 	padding: 0rem 3em;
-	background-color: var(--color-green);
+	background-color: var(--color_page);
 }
-.header img {
-	width: 80px;
-}
+
 .logo {
 	min-width: 1px;
 }
@@ -29,17 +37,33 @@ body {
 	font-family: var(--roboto);
 	font-size: 3em;
 }
+
 .nav {
 	grid-area: nav;
-	background-color: var(--color-green);
+	background-color: var(--color_page);
 }
 .nav__link {
-	color: gold;
+	color: red;
+	position: relative;
+}
+.nav__link span::after {
+	position: absolute;
+	top: 120%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	content: "";
+	height: 0.2rem;
+	width: 100%;
+	background-color: red;
+}
+
+.link {
 }
 
 .content {
 	grid-area: content;
-	background-color: var(--color-green);
+	background-color: var(--color_page);
 }
 
 .content--padding_sm {

@@ -1,3 +1,20 @@
 .block {
 	min-width: 1px;
 }
+
+.block--absolute {
+	position: absolute;
+}
+.block--z_index_lg {
+	z-index: 100;
+}
+.block--right_null {
+	right: 0;
+}
+
+.block--top_sm {
+	top: 10px;
+}
+.block--right_sm {
+	right: 10px;
+}

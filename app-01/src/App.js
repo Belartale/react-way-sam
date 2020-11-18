@@ -5,8 +5,11 @@ import "../node_modules/normalize.css/normalize.css";
 import "./App.css";
 import "./components/css/row.css";
 import "./components/css/cell.css";
+import "./components/css/card.css";
 import "./components/css/caption.css";
 import "./components/css/img.css";
+import "./components/css/control.css";
+import "./components/css/block.css";
 
 import Header from "./components/header/Header";
 

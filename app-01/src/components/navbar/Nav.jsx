@@ -1,33 +1,33 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Nav = () => {
+const Nav = (props) => {
 	return (
 		<nav className="nav">
 			<ul className="list">
-				<li className="list__item">
+				<li className="list__item cell">
 					<NavLink className="link" activeClassName="nav__link" to="/profile">
-						<p className="caption">profile</p>
+						<span className="caption caption--size_3">profile</span>
 					</NavLink>
 				</li>
-				<li className="list__item">
+				<li className="list__item cell">
 					<NavLink className="link" activeClassName="nav__link" to="/dialogs">
-						<p className="caption">messages</p>
+						<span className="caption caption--size_3">messages</span>
 					</NavLink>
 				</li>
-				<li className="list__item">
+				<li className="list__item cell">
 					<NavLink className="link" activeClassName="nav__link" to="/news">
-						<p className="caption">news</p>
+						<span className="caption caption--size_3">news</span>
 					</NavLink>
 				</li>
-				<li className="list__item">
+				<li className="list__item cell">
 					<NavLink className="link" activeClassName="nav__link" to="/music">
-						<p className="caption">music</p>
+						<span className="caption caption--size_3">music</span>
 					</NavLink>
 				</li>
-				<li className="list__item">
+				<li className="list__item cell">
 					<NavLink className="link" activeClassName="nav__link" to="/settings">
-						<p className="caption">settings</p>
+						<span className="caption caption--size_3">settings</span>
 					</NavLink>
 				</li>
 			</ul>

@@ -30,6 +30,6 @@ route - система смотрит какой в адресе путь (URL)
 
 <NavLink to="/path/3"> id это под категория path
 
-
+atridute={obj.key}
 
 
