@@ -1,11 +1,10 @@
 import React from "react";
 import Post from "./post/Post";
 
-const MyPosts = () => {
-	let myPostsData = [
-		{ id: 1, likes: 12, message: "Lorem, ipsum dolor." },
-		{ id: 2, likes: 33, message: "Lorem ipsum dolor sit amet." },
-	];
+const MyPosts = (props) => {
+	// let PostElement = props.myPostsData.map((data) => (
+	// 	<Post message={data.message} likes={data.likes} />
+	// ));
 
 	return (
 		<div className="block">
@@ -21,12 +20,10 @@ const MyPosts = () => {
 					<p className="caption--size_3">Отправить</p>
 				</button>
 			</form>
-			<Post
-				message="lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem "
-				likes="12"
-			/>
-			<Post message="two" likes="1" />
-			<Post />
+			<div>
+				{/* {PostElement} */}
+				<Post myPostsData={props.myPostsData} />
+			</div>
 		</div>
 	);
 };

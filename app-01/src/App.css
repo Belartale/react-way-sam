@@ -2,6 +2,7 @@
 	/*fonts*/
 	--roboro: "Roboto", sans-serif;
 	--color_page: rgb(225, 225, 225);
+	--color_nav__link: rgb(189, 0, 0);
 }
 html,
 body {
@@ -43,7 +44,7 @@ a {
 	background-color: var(--color_page);
 }
 .nav__link {
-	color: red;
+	color: var(--color_nav__link);
 	position: relative;
 }
 .nav__link span::after {
@@ -55,10 +56,7 @@ a {
 	content: "";
 	height: 0.2rem;
 	width: 100%;
-	background-color: red;
-}
-
-.link {
+	background-color: var(--color_nav__link);
 }
 
 .content {

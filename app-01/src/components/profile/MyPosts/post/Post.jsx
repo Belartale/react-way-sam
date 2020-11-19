@@ -1,7 +1,9 @@
 import React from "react";
 
 const Post = (props) => {
-	return (
+	let PostElement = props.myPostsData.map((data) => (
+		// <Post message={data.message} likes={data.likes} />
+
 		<div className="card">
 			<div className="row row--align_center">
 				<div className="cell cell--5">
@@ -12,16 +14,18 @@ const Post = (props) => {
 					/>
 				</div>
 				<div className="cell cell--90">
-					<p className="caption caption--size_3">{props.message}</p>
+					<p className="caption caption--size_3">{data.message}</p>
 				</div>
 			</div>
 			<div className="row">
 				<div className="cell cell--100">
-					<p className="caption caption--size_3">like {props.likes}</p>
+					<p className="caption caption--size_3">like {data.likes}</p>
 				</div>
 			</div>
 		</div>
-	);
+	));
+
+	return <div>{PostElement}</div>;
 };
 
 export default Post;

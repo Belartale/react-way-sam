@@ -5,6 +5,15 @@
 .block--absolute {
 	position: absolute;
 }
+.block--relative {
+	position: relative;
+}
+.block--absolute_right_sm {
+	position: absolute;
+	top: 50%;
+	right: 0px;
+	transform: translate(0%, -50%);
+}
 .block--z_index_lg {
 	z-index: 100;
 }

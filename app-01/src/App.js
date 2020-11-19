@@ -9,6 +9,8 @@ import "./components/css/card.css";
 import "./components/css/caption.css";
 import "./components/css/img.css";
 import "./components/css/control.css";
+import "./components/css/link.css";
+import "./components/css/list.css";
 import "./components/css/block.css";
 
 import Header from "./components/header/Header";

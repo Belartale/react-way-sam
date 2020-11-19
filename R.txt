@@ -7,23 +7,30 @@ SPA - single page application
 потом идёт запрос AJAX запрос на сервак (постоянно принимает запросы)
 сервак воз JSON файл
 
-JSX - это одельный язык, html в js типа:
-return (
+UI - User Interface
+UX - User Experience
+
+
+JSX - это одельный язык, html в js
+
+КОМПОНЕНТА - это ФУНКЦИЯ, возвращяющая разметку (JSX)
+const App = (props) => {
+  return (
     <div>
       <p>2342asd</p>
     </div>
   );
-
-КОМПОНЕНТА - это ФУНКЦИЯ, возвращяющая разметку (JSX)
-const App = () => {...}
+}
 <App/>
 
 import <> from "./<>";
 export default <>;
 
+npm i react-router-dom
+
 route - система смотрит какой в адресе путь (URL)
 
-для <Route /> нужно указывать внутри <BrowserRouter>
+для <Route path="/lorem" component={lorem} /> нужно указывать внутри <BrowserRouter></BrowserRouter>
 
 
 что бы без перезагрузки старницы использовать <NavLink to="/path">
@@ -32,4 +39,7 @@ route - система смотрит какой в адресе путь (URL)
 
 atridute={obj.key}
 
+let data = arrData.map((element) => (
+  <p>{element.key}</p>
+));
 
