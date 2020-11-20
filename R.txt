@@ -31,6 +31,7 @@ npm i react-router-dom
 route - система смотрит какой в адресе путь (URL)
 
 для <Route path="/lorem" component={lorem} /> нужно указывать внутри <BrowserRouter></BrowserRouter>
+или же можно рендерить так: <Route path="/lorem" render={() => <Lorem />} />
 
 
 что бы без перезагрузки старницы использовать <NavLink to="/path">

@@ -1,6 +1,8 @@
 import React from "react";
 // import logo from "./logo.svg";
 
+// css
+
 import "../node_modules/normalize.css/normalize.css";
 import "./App.css";
 import "./components/css/row.css";
@@ -24,17 +26,29 @@ import Settings from "./components/settings/Settings";
 import Profile from "./components/profile/Profile";
 
 import { BrowserRouter, Route } from "react-router-dom";
-//jsx
 
-const App = () => {
+// jsx
+
+const App = (props) => {
 	return (
 		<BrowserRouter>
 			<div className="wrapper__grid_main">
 				<Header />
 				<Nav />
 				<div className="content content--padding_sm">
-					<Route path="/profile" component={Profile} />
-					<Route path="/dialogs" component={Dialogs} />
+					<Route
+						path="/profile"
+						render={() => <Profile myPostsData={props.myPostsData} />}
+					/>
+					<Route
+						path="/dialogs"
+						render={() => (
+							<Dialogs
+								dialogsData={props.dialogsData}
+								messageData={props.messageData}
+							/>
+						)}
+					/>
 					<Route path="/news" component={News} />
 					<Route path="/music" component={Music} />
 					<Route path="/settings" component={Settings} />
