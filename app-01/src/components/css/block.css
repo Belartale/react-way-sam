@@ -17,6 +17,10 @@
 .block--z_index_lg {
 	z-index: 100;
 }
+.block--indents_md {
+	padding: 2em;
+}
+
 .block--right_null {
 	right: 0;
 }
@@ -26,4 +30,9 @@
 }
 .block--right_sm {
 	right: 10px;
+}
+
+.block--list_scroll {
+	overflow: auto;
+	/* overflow-y: hidden; */
 }

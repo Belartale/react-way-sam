@@ -8,6 +8,9 @@
 	margin: var(--row_margin--sm);
 	/* margin: 0px -10px; */
 }
+.fn {
+	flex-wrap: nowrap;
+}
 
 .row--align_center {
 	align-items: center;

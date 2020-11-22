@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const DialogsItem = (props) => {
+	console.log(props);
 	let dialogsElements = props.dialogsData.map((data) => (
 		<li className="list__item">
 			<NavLink className="link" to={`/dialogs/${data.id}`}>

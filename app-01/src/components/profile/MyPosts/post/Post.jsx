@@ -1,7 +1,8 @@
 import React from "react";
 
 const Post = (props) => {
-	let PostElement = props.myPostsData.map((data) => (
+	console.log("Post :>> ", props);
+	let PostElement = props.postData.map((data) => (
 		// <Post message={data.message} likes={data.likes} />
 
 		<div className="card">

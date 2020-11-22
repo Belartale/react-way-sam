@@ -28,7 +28,7 @@ export default <>;
 
 npm i react-router-dom
 
-route - система смотрит какой в адресе путь (URL)
+route - система смотрит какой в адресе путь (URL) если в адресе новый путь то меняет компоненту
 
 для <Route path="/lorem" component={lorem} /> нужно указывать внутри <BrowserRouter></BrowserRouter>
 или же можно рендерить так: <Route path="/lorem" render={() => <Lorem />} />

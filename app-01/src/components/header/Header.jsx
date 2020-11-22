@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = (props) => {
 	return (
-		<header className="header">
+		<header className="wrapper__header">
 			<div className="block">
 				<div className="row row--justify_center block--relative">
 					<h1 className="caption caption--size_1">Empire</h1>

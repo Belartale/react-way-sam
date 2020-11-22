@@ -2,10 +2,7 @@ import React from "react";
 import Post from "./post/Post";
 
 const MyPosts = (props) => {
-	// let PostElement = props.myPostsData.map((data) => (
-	// 	<Post message={data.message} likes={data.likes} />
-	// ));
-
+	console.log("MyPosts :>> ", props);
 	return (
 		<div className="block">
 			<form className="block" action="">
@@ -21,8 +18,7 @@ const MyPosts = (props) => {
 				</button>
 			</form>
 			<div>
-				{/* {PostElement} */}
-				<Post myPostsData={props.myPostsData} />
+				<Post postData={props.myPostsData} />
 			</div>
 		</div>
 	);

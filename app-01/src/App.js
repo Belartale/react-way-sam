@@ -16,8 +16,8 @@ import "./components/css/list.css";
 import "./components/css/block.css";
 
 import Header from "./components/header/Header";
+import SideBar from "./components/sideBar/SideBar";
 
-import Nav from "./components/navbar/Nav";
 import Dialogs from "./components/dialogs/Dialogs";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
@@ -32,26 +32,22 @@ import { BrowserRouter, Route } from "react-router-dom";
 const App = (props) => {
 	return (
 		<BrowserRouter>
-			<div className="wrapper__grid_main">
+			<div className="wrapper__page">
 				<Header />
-				<Nav />
-				<div className="content content--padding_sm">
+				{/* <Route render={() => <SideBar sideBar={props.state.sideBar} />} /> */}
+				<SideBar sideBar={props.state.sideBar} />
+				<div className="wrapper__content wrapper__content--padding_sm">
 					<Route
 						path="/profile"
-						render={() => <Profile myPostsData={props.myPostsData} />}
+						render={() => <Profile profileData={props.state.profile} />}
 					/>
 					<Route
 						path="/dialogs"
-						render={() => (
-							<Dialogs
-								dialogsData={props.dialogsData}
-								messageData={props.messageData}
-							/>
-						)}
+						render={() => <Dialogs dialogs={props.state.dialogs} />}
 					/>
-					<Route path="/news" component={News} />
-					<Route path="/music" component={Music} />
-					<Route path="/settings" component={Settings} />
+					<Route path="/news" render={News} />
+					<Route path="/music" render={Music} />
+					<Route path="/settings" render={Settings} />
 				</div>
 			</div>
 		</BrowserRouter>

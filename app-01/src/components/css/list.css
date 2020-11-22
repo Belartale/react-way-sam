@@ -1,3 +1,10 @@
 .list {
 	list-style: none;
 }
+.list__item {
+	min-width: 1px;
+}
+
+.list__item--bottom_sm:not(:last-child) {
+	margin-bottom: 1em;
+}
