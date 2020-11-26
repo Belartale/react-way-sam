@@ -12,3 +12,8 @@
 	border-radius: 50%;
 	border: 2px solid black;
 }
+
+.img--width_50 {
+	max-width: 50px;
+	min-width: 50px;
+}

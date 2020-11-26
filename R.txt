@@ -31,7 +31,7 @@ npm i react-router-dom
 route - система смотрит какой в адресе путь (URL) если в адресе новый путь то меняет компоненту
 
 для <Route path="/lorem" component={lorem} /> нужно указывать внутри <BrowserRouter></BrowserRouter>
-или же можно рендерить так: <Route path="/lorem" render={() => <Lorem />} />
+или же можно рендерить так: <Route path="/lorem" render={(props) => <Lorem some={props.some} />} />
 
 
 что бы без перезагрузки старницы использовать <NavLink to="/path">
@@ -44,3 +44,22 @@ let data = arrData.map((element) => (
   <p>{element.key}</p>
 ));
 
+ссылка:
+let addPost = () => {
+	let text = newPostElement.current.value;
+	alert(text); };
+
+let newPostElement = React.createRef();
+<textarea ref={newPostElement} ></textarea>
+<button className="control" onClick={addPost}></button>
+
+// создаём ссылку React.createRef();
+// берём значение ванильные даные ввода JS current.value;
+
+MobX == ООП програмирования
+Redux == Функциональное програмирования
+
+Flux == это архитектура
+
+valu={props.state}
+onChenge={fun}

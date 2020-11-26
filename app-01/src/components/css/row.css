@@ -8,7 +8,7 @@
 	margin: var(--row_margin--sm);
 	/* margin: 0px -10px; */
 }
-.fn {
+.row--flex_nowrap {
 	flex-wrap: nowrap;
 }
 

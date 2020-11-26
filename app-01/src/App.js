@@ -14,6 +14,7 @@ import "./components/css/control.css";
 import "./components/css/link.css";
 import "./components/css/list.css";
 import "./components/css/block.css";
+import "./components/css/nav.css";
 
 import Header from "./components/header/Header";
 import SideBar from "./components/sideBar/SideBar";
@@ -39,11 +40,23 @@ const App = (props) => {
 				<div className="wrapper__content wrapper__content--padding_sm">
 					<Route
 						path="/profile"
-						render={() => <Profile profileData={props.state.profile} />}
+						render={() => (
+							<Profile
+								profileData={props.state.profilePage}
+								addPost={props.addPost}
+								updateNewPostText={props.updateNewPostText}
+							/>
+						)}
 					/>
 					<Route
 						path="/dialogs"
-						render={() => <Dialogs dialogs={props.state.dialogs} />}
+						render={() => (
+							<Dialogs
+								dialogsPage={props.state.dialogsPage}
+								addMessage={props.addMessage}
+								updateNewMessageText={props.updateNewMessageText}
+							/>
+						)}
 					/>
 					<Route path="/news" render={News} />
 					<Route path="/music" render={Music} />

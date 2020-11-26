@@ -3,6 +3,8 @@
 	--roboro: "Roboto", sans-serif;
 	--color_page: rgb(225, 225, 225);
 	--color_nav__link: rgb(189, 0, 0);
+
+	--indents_inside_page: 2em;
 }
 html,
 body {
@@ -21,13 +23,13 @@ a {
 
 .wrapper__page {
 	display: grid;
-	grid-template: [start] "wrapper__header wrapper__header" 80px [row2] [row2] "side_bar wrapper__content" 1fr [row-end] / 2fr 10fr;
+	grid-template: [start] "wrapper__header wrapper__header" auto [row2] [row2] "side_bar wrapper__content" 1fr [row-end] / 2fr 10fr;
 	grid-gap: 10px;
 }
 
 .wrapper__header {
 	grid-area: wrapper__header;
-	padding: 0rem 3em;
+	padding: var(--indents_inside_page);
 	background-color: var(--color_page);
 }
 
@@ -43,19 +45,8 @@ a {
 	grid-area: side_bar;
 	background-color: var(--color_page);
 }
-.nav__link {
-	color: var(--color_nav__link);
-	position: relative;
-}
-.nav__link span::after {
-	position: absolute;
-	top: 120%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	content: "";
-	height: 0.2rem;
-	width: 100%;
-	background-color: var(--color_nav__link);
+.side_bar--padding_sm {
+	padding: var(--indents_inside_page);
 }
 
 .wrapper__content {
@@ -64,5 +55,5 @@ a {
 }
 
 .wrapper__content--padding_sm {
-	padding: 1rem;
+	padding: var(--indents_inside_page);
 }
