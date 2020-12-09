@@ -1,4 +1,8 @@
-import renderApp from "../render";
+// import renderApp from "../render";
+
+let renderApp = () => {
+	console.log("renderApp");
+};
 
 let state = {
 	profilePage: {
@@ -46,6 +50,8 @@ let state = {
 	},
 };
 
+export default state;
+
 export let addPost = () => {
 	let newPost = {
 		id: 1,
@@ -78,4 +84,6 @@ export let updateNewMessageText = (newText) => {
 	renderApp(state);
 };
 
-export default state;
+export const subscribe = (observer) => {
+	renderApp = observer;
+};
