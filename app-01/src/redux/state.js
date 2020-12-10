@@ -61,11 +61,13 @@ export let addPost = () => {
 	state.profilePage.posts.push(newPost);
 	state.profilePage.newPostText = "";
 	renderApp(state);
+	// renderApp();
 };
 
 export let updateNewPostText = (newText) => {
 	state.profilePage.newPostText = newText;
 	renderApp(state);
+	// renderApp();
 };
 //! ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 export let addMessage = () => {
@@ -77,11 +79,13 @@ export let addMessage = () => {
 	state.profilePage.newMessageText = "";
 
 	renderApp(state);
+	// renderApp();
 };
 
 export let updateNewMessageText = (newText) => {
 	state.dialogsPage.newMessageText = newText;
 	renderApp(state);
+	// renderApp();
 };
 
 export const subscribe = (observer) => {
