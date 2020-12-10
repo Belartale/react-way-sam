@@ -61,5 +61,5 @@ Redux == Функциональное програмирования
 
 Flux == это архитектура
 
-valu={props.state}
+value={props.state}
 onChenge={fun}
