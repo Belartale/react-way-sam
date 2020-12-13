@@ -3,7 +3,7 @@ import Nav from "./nav/Nav";
 import Friends from "./friends/Friends";
 
 const SideBar = (props) => {
-	//  sideBar={props.sideBar}
+	console.log("SideBar :>> ", props);
 	return (
 		<div className="side_bar block block--indents_md">
 			<Nav />

@@ -9,7 +9,7 @@ import "./index.css";
 let renderApp = (store) => {
 	ReactDOM.render(
 		<React.StrictMode>
-			<App store={store} />
+			<App state={state} />
 		</React.StrictMode>,
 		document.getElementById("root")
 	);

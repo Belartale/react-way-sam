@@ -6,6 +6,7 @@ const MyPosts = (props) => {
 		e.preventDefault();
 		// let text = newPostElement.current.value;
 		props.addPost();
+		console.log(props.appPost);
 	};
 
 	let onChange = () => {

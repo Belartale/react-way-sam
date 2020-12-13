@@ -46,7 +46,9 @@ export let store = {
 		},
 	},
 
-	getState() {},
+	getState() {
+		return this._state;
+	},
 
 	_callSubscribe() {
 		console.log("renderApp!!!!!!!!!!!!!!!!!!!!!!!!");
