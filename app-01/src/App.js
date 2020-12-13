@@ -28,25 +28,20 @@ import Profile from "./components/profile/Profile";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
-// jsx
-
 const App = (props) => {
-	// debugger;
 	return (
 		<BrowserRouter>
 			<div className="wrapper__page">
 				<Header />
-				<SideBar sideBar={props.store.getState().sideBar} />
+				<SideBar sideBar={props.state.sideBar} />
 				<div className="wrapper__content wrapper__content--padding_sm">
 					<Route
 						path="/profile"
 						render={() => (
 							<Profile
-								profileData={props.store.getState().profileData}
-								addPost={props.store.addPost}
-								updateNewPostText={props.store.updateNewPostText.bind(
-									props.store
-								)}
+								profileData={props.state.profileData}
+								addPost={props.addPost}
+								updateNewPostText={props.updateNewPostText}
 								// addPost={props.store.addPost}
 								// updateNewPostText={props.store.updateNewPostText}
 							/>

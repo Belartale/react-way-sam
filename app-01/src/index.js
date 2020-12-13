@@ -6,10 +6,17 @@ import * as serviceWorker from "./serviceWorker";
 import store from "./redux/state";
 import "./index.css";
 
-let renderApp = (store) => {
+let renderApp = (props) => {
 	ReactDOM.render(
 		<React.StrictMode>
-			<App state={state} />
+			<App
+				state={props}
+				addPost={store.addPost.bind(store)}
+				updateNewPostText={store.updateNewPostText.bind(store)}
+				//
+				addMessage={store.addMessage}
+				updateNewMessageText={store.updateNewMessageText}
+			/>
 		</React.StrictMode>,
 		document.getElementById("root")
 	);
@@ -18,7 +25,7 @@ let renderApp = (store) => {
 
 // export default renderApp;
 
-renderApp(store);
+renderApp(store.getState(), store);
 
 // subscribe
 store.subscribe(renderApp);
