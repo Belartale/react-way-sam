@@ -53,8 +53,8 @@ let newPostElement = React.createRef();
 <textarea ref={newPostElement} ></textarea>
 <button className="control" onClick={addPost}></button>
 
-// создаём ссылку React.createRef();
-// берём значение ванильные даные ввода JS current.value;
+// создаём ссылку React.createRef(); // пита getElementById;
+// берём значение ванильные даные ввода JS current.value; // current == ссылается на нативный елемет JS
 
 MobX == ООП програмирования
 Redux == Функциональное програмирования

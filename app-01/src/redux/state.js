@@ -1,7 +1,9 @@
 // import renderApp from "../render";
 
 let renderApp = () => {
-	console.log("renderApp");
+	console.log(
+		"renderApp!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+	);
 };
 
 let state = {
