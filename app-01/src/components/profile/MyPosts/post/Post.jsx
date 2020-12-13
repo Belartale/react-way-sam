@@ -1,7 +1,6 @@
 import React from "react";
 
 const Post = (props) => {
-	console.log("Post :>> ", props);
 	let PostElement = props.postData.map((data) => (
 		// <Post message={data.message} likes={data.likes} />
 

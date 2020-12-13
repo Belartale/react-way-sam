@@ -1,95 +1,91 @@
-// import renderApp from "../render";
+export let store = {
+	_state: {
+		profileData: {
+			posts: [
+				{ id: 1, likes: 12, message: "Lorem, ipsum dolor. I have 12 likes" },
+				{
+					id: 2,
+					likes: 33,
+					message: "Lorem ipsum dolor sit amet. And I have 33 likes too",
+				},
+			],
+			newPostText: "asd11111111",
+		},
 
-let renderApp = () => {
-	console.log(
-		"renderApp!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-	);
-};
+		dialogsPage: {
+			dialogsData: [
+				{ id: 1, name: "Artur" },
+				{ id: 2, name: "lorem" },
+			],
 
-let state = {
-	profilePage: {
-		posts: [
-			{ id: 1, likes: 12, message: "Lorem, ipsum dolor. I have 12 likes" },
-			{
-				id: 2,
-				likes: 33,
-				message: "Lorem ipsum dolor sit amet. And I have 33 likes too",
-			},
-		],
-		newPostText: "asd11111111",
+			messageData: [
+				{ id: 1, message: "Lorem, ipsum dolor111." },
+				{ id: 2, message: "Lorem ipsum dolor sit amet." },
+			],
+			newMessageText: "textttt",
+		},
+
+		sideBar: {
+			friends: [
+				"Saha",
+				"Andre",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lorem",
+				"Lili",
+			],
+		},
 	},
 
-	dialogsPage: {
-		dialogsData: [
-			{ id: 1, name: "Artur" },
-			{ id: 2, name: "lorem" },
-		],
+	getState() {},
 
-		messageData: [
-			{ id: 1, message: "Lorem, ipsum dolor111." },
-			{ id: 2, message: "Lorem ipsum dolor sit amet." },
-		],
-		newMessageText: "textttt",
+	_callSubscribe() {
+		console.log("renderApp!!!!!!!!!!!!!!!!!!!!!!!!");
 	},
-	sideBar: {
-		friends: [
-			"Saha",
-			"Andre",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lorem",
-			"Lili",
-		],
+
+	addPost() {
+		let newPost = {
+			id: 1,
+			likes: 0,
+			message: this._state.profileData.newPostText,
+		};
+		this._state.profileData.posts.push(newPost);
+		this._state.profileData.newPostText = "";
+		this._callSubscribe(this._state);
+	},
+
+	updateNewPostText(newText) {
+		this._state.profileData.newPostText = newText;
+		this._callSubscribe(this._state);
+	},
+
+	addMessage() {
+		let newMessage = {
+			id: 3,
+			message: this._state.dialogsPage.newMessageText,
+		};
+		this._state.dialogsPage.messageData.push(newMessage);
+		this._state.profileData.newMessageText = "";
+		this._callSubscribe(this._state);
+	},
+
+	updateNewMessageText(newText) {
+		this._state.dialogsPage.newMessageText = newText;
+		this._callSubscribe(this._state);
+	},
+
+	subscribe(observer) {
+		this._callSubscribe = observer;
 	},
 };
 
-export default state;
-
-export let addPost = () => {
-	let newPost = {
-		id: 1,
-		likes: 0,
-		message: state.profilePage.newPostText,
-	};
-	state.profilePage.posts.push(newPost);
-	state.profilePage.newPostText = "";
-	renderApp(state);
-	// renderApp();
-};
-
-export let updateNewPostText = (newText) => {
-	state.profilePage.newPostText = newText;
-	renderApp(state);
-	// renderApp();
-};
-//! ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-export let addMessage = () => {
-	let newMessage = {
-		id: 3,
-		message: state.dialogsPage.newMessageText,
-	};
-	state.dialogsPage.messageData.push(newMessage);
-	state.profilePage.newMessageText = "";
-
-	renderApp(state);
-	// renderApp();
-};
-
-export let updateNewMessageText = (newText) => {
-	state.dialogsPage.newMessageText = newText;
-	renderApp(state);
-	// renderApp();
-};
-
-export const subscribe = (observer) => {
-	renderApp = observer;
-};
+export default store;

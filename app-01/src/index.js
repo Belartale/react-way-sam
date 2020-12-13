@@ -1,31 +1,15 @@
-import "./index.css";
-
-import state, { subscribe } from "./redux/state";
-// import { addPost } from "./state/state";
-
-// import renderApp from "./render";
-
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import {
-	addPost,
-	updateNewPostText,
-	addMessage,
-	updateNewMessageText,
-} from "./redux/state";
 
-let renderApp = (state) => {
+import store from "./redux/state";
+import "./index.css";
+
+let renderApp = (store) => {
 	ReactDOM.render(
 		<React.StrictMode>
-			<App
-				state={state}
-				addPost={addPost}
-				updateNewPostText={updateNewPostText}
-				addMessage={addMessage}
-				updateNewMessageText={updateNewMessageText}
-			/>
+			<App store={store} />
 		</React.StrictMode>,
 		document.getElementById("root")
 	);
@@ -34,7 +18,7 @@ let renderApp = (state) => {
 
 // export default renderApp;
 
-renderApp(state);
+renderApp(store);
 
 // subscribe
-subscribe(renderApp);
+store.subscribe(renderApp);

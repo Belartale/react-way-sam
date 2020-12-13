@@ -25,7 +25,7 @@ const MyPosts = (props) => {
 					id=""
 					cols="30"
 					rows="5"
-					value={props.newPostText}
+					value={props.profileData.newPostText}
 					onChange={onChange}
 				/>
 				<button className="control" onClick={addPost}>
@@ -33,7 +33,7 @@ const MyPosts = (props) => {
 				</button>
 			</form>
 			<div>
-				<Post postData={props.posts} />
+				<Post postData={props.profileData.posts} />
 			</div>
 		</div>
 	);
