@@ -2,20 +2,19 @@ import React from "react";
 import Post from "./post/Post";
 
 const MyPosts = (props) => {
+	let newPostElement = React.createRef();
+
 	let addPost = (e) => {
 		e.preventDefault();
 		// let text = newPostElement.current.value;
 		props.addPost();
-		console.log(props.appPost);
 	};
 
 	let onChange = () => {
 		let text = newPostElement.current.value;
-
 		props.updateNewPostText(text);
 	};
 
-	let newPostElement = React.createRef();
 	return (
 		<div className="block">
 			<form className="block" action="">

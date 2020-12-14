@@ -14,8 +14,8 @@ let renderApp = (props) => {
 				addPost={store.addPost.bind(store)}
 				updateNewPostText={store.updateNewPostText.bind(store)}
 				//
-				addMessage={store.addMessage}
-				updateNewMessageText={store.updateNewMessageText}
+				addMessage={store.addMessage.bind(store)}
+				updateNewMessageText={store.updateNewMessageText.bind(store)}
 			/>
 		</React.StrictMode>,
 		document.getElementById("root")

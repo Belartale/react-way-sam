@@ -9,7 +9,7 @@ export let store = {
 					message: "Lorem ipsum dolor sit amet. And I have 33 likes too",
 				},
 			],
-			newPostText: "asd11111111",
+			newPostText: "something text of new post",
 		},
 
 		dialogsPage: {
@@ -22,7 +22,7 @@ export let store = {
 				{ id: 1, message: "Lorem, ipsum dolor111." },
 				{ id: 2, message: "Lorem ipsum dolor sit amet." },
 			],
-			newMessageText: "textttt",
+			newMessageText: "something text of new message",
 		},
 
 		sideBar: {
@@ -76,7 +76,7 @@ export let store = {
 			message: this._state.dialogsPage.newMessageText,
 		};
 		this._state.dialogsPage.messageData.push(newMessage);
-		this._state.profileData.newMessageText = "";
+		this._state.dialogsPage.newMessageText = "";
 		this._callSubscribe(this._state);
 	},
 
