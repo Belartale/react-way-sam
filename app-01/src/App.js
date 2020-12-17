@@ -40,10 +40,9 @@ const App = (props) => {
 						render={() => (
 							<Profile
 								profileData={props.state.profileData}
-								addPost={props.addPost}
-								updateNewPostText={props.updateNewPostText}
-								// addPost={props.store.addPost}
-								// updateNewPostText={props.store.updateNewPostText}
+								// addPost={props.addPost}
+								// updateNewPostText={props.updateNewPostText}
+								dispatch={props.dispatch}
 							/>
 						)}
 					/>

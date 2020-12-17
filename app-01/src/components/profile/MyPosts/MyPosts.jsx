@@ -6,26 +6,27 @@ const MyPosts = (props) => {
 
 	let addPost = (e) => {
 		e.preventDefault();
-		// let text = newPostElement.current.value;
-		props.addPost();
+		// props.addPost();
+		props.dispatch({ type: "ADD-POST" });
 	};
 
 	let onChange = () => {
 		let text = newPostElement.current.value;
-		props.updateNewPostText(text);
+		// props.updateNewPostText(text);
+		props.dispatch({ type: "UPDATE-POST", textPost: text });
 	};
 
 	return (
 		<div className="block">
 			<form className="block" action="">
 				<textarea
-					ref={newPostElement}
 					className="control"
 					name=""
 					id=""
 					cols="30"
 					rows="5"
 					value={props.profileData.newPostText}
+					ref={newPostElement}
 					onChange={onChange}
 				/>
 				<button className="control" onClick={addPost}>

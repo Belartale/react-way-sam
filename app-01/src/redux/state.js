@@ -45,7 +45,6 @@ export let store = {
 			],
 		},
 	},
-
 	getState() {
 		return this._state;
 	},
@@ -53,22 +52,24 @@ export let store = {
 	_callSubscribe() {
 		console.log("renderApp!!!!!!!!!!!!!!!!!!!!!!!!");
 	},
-
-	addPost() {
-		let newPost = {
-			id: 1,
-			likes: 0,
-			message: this._state.profileData.newPostText,
-		};
-		this._state.profileData.posts.push(newPost);
-		this._state.profileData.newPostText = "";
-		this._callSubscribe(this._state);
+	subscribe(observer) {
+		this._callSubscribe = observer;
 	},
 
-	updateNewPostText(newText) {
-		this._state.profileData.newPostText = newText;
-		this._callSubscribe(this._state);
-	},
+	// addPost() {
+	// 	let newPost = {
+	// 		id: 1,
+	// 		likes: 0,
+	// 		message: this._state.profileData.newPostText,
+	// 	};
+	// 	this._state.profileData.posts.push(newPost);
+	// 	this._state.profileData.newPostText = "";
+	// 	this._callSubscribe(this._state);
+	// },
+	// updateNewPostText(newText) {
+	// 	this._state.profileData.newPostText = newText;
+	// 	this._callSubscribe(this._state);
+	// },
 
 	addMessage() {
 		let newMessage = {
@@ -79,14 +80,25 @@ export let store = {
 		this._state.dialogsPage.newMessageText = "";
 		this._callSubscribe(this._state);
 	},
-
 	updateNewMessageText(newText) {
 		this._state.dialogsPage.newMessageText = newText;
 		this._callSubscribe(this._state);
 	},
 
-	subscribe(observer) {
-		this._callSubscribe = observer;
+	dispatch(action) {
+		if (action.type === "ADD-POST") {
+			let newPost = {
+				id: 1,
+				likes: 0,
+				message: this._state.profileData.newPostText,
+			};
+			this._state.profileData.posts.push(newPost);
+			this._state.profileData.newPostText = "";
+			this._callSubscribe(this._state);
+		} else if (action.type === "UPDATE-POST") {
+			this._state.profileData.newPostText = action.textPost;
+			this._callSubscribe(this._state);
+		}
 	},
 };
 

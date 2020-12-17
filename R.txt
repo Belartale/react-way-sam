@@ -63,3 +63,9 @@ Flux == это архитектура
 
 value={props.state}
 onChenge={fun}
+
+observer == наблюдатель
+
+dispatch(action) == отправить(объект)
+
+// type: "ADD-POST"
