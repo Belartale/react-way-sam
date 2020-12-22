@@ -68,4 +68,5 @@ observer == наблюдатель
 
 dispatch(action) == отправить(объект)
 
+action это объект у него должен быть type
 // type: "ADD-POST"
