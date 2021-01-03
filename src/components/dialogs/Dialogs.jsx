@@ -1,6 +1,10 @@
 import React from "react";
 import DialogsItem from "./DialogsItem/DialogsItem";
 import DialogsMessage from "./DialogsMessage/DialogsMessage";
+import {
+  sendMessageActionCreator,
+  updataMessageActionCreator,
+} from "../../redux/state";
 
 const Dialogs = (props) => {
   let newDialogElement = React.createRef();
@@ -11,9 +15,15 @@ const Dialogs = (props) => {
     props.addMessage();
   };
 
-  let onChange = () => {
-    let text = newDialogElement.current.value;
-    props.updateNewMessageText(text);
+  let onClick = (e) => {
+    props.dispatch(sendMessageActionCreator());
+  };
+  let onChange = (e) => {
+    // let text = newDialogElement.current.value;
+    // props.updateNewMessageText(text);
+
+    let body = e.target.value;
+    props.dispatch(updataMessageActionCreator(body));
   };
 
   return (
@@ -38,7 +48,7 @@ const Dialogs = (props) => {
             value={props.dialogsPage.newMessageText}
             onChange={onChange}
           ></textarea>
-          <button className="control" onClick={addDialogs}>
+          <button className="control" onClick={onClick}>
             Отправить
           </button>
         </div>

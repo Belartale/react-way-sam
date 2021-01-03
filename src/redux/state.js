@@ -1,8 +1,8 @@
 let ADD_POST = "ADD-POST";
 let UPDATE_POST = "UPDATE_POST";
 
-let NEW_MESSAGE_TEXT = "NEW-MESSAGE-TEXT";
 let SEND_MESSAGE = "SEND-MESSAGE";
+let UPDATE_MESSAGE = "NEW-MESSAGE-TEXT";
 
 export let store = {
   _state: {
@@ -91,7 +91,7 @@ export let store = {
 
       // message
       this._callSubscribe(this._state);
-    } else if (action.type === NEW_MESSAGE_TEXT) {
+    } else if (action.type === UPDATE_MESSAGE) {
       this._state.dialogsPage.newMessageText = action.textPost;
       this._callSubscribe(this._state);
     } else if (action.type === SEND_MESSAGE) {
@@ -109,8 +109,13 @@ export let store = {
 export default store;
 
 export let addTextActionCreator = (params) => ({ type: ADD_POST }); // "ADD-POST"
-
 export let updataTextActionCreator = (text) => ({
   type: UPDATE_POST,
+  textPost: text,
+});
+
+export let sendMessageActionCreator = (params) => ({ type: SEND_MESSAGE }); // "ADD-POST"
+export let updataMessageActionCreator = (text) => ({
+  type: UPDATE_MESSAGE,
   textPost: text,
 });

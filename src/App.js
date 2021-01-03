@@ -29,40 +29,41 @@ import Profile from "./components/profile/Profile";
 import { BrowserRouter, Route } from "react-router-dom";
 
 const App = (props) => {
-	return (
-		<BrowserRouter>
-			<div className="wrapper__page">
-				<Header />
-				<SideBar sideBar={props.state.sideBar} />
-				<div className="wrapper__content wrapper__content--padding_sm">
-					<Route
-						path="/profile"
-						render={() => (
-							<Profile
-								profileData={props.state.profileData}
-								// addPost={props.addPost}
-								// updateNewPostText={props.updateNewPostText}
-								dispatch={props.dispatch}
-							/>
-						)}
-					/>
-					<Route
-						path="/dialogs"
-						render={() => (
-							<Dialogs
-								dialogsPage={props.state.dialogsPage}
-								addMessage={props.addMessage}
-								updateNewMessageText={props.updateNewMessageText}
-							/>
-						)}
-					/>
-					<Route path="/news" render={News} />
-					<Route path="/music" render={Music} />
-					<Route path="/settings" render={Settings} />
-				</div>
-			</div>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <div className="wrapper__page">
+        <Header />
+        <SideBar sideBar={props.state.sideBar} />
+        <div className="wrapper__content wrapper__content--padding_sm">
+          <Route
+            path="/profile"
+            render={() => (
+              <Profile
+                profileData={props.state.profileData}
+                // addPost={props.addPost}
+                // updateNewPostText={props.updateNewPostText}
+                dispatch={props.dispatch}
+              />
+            )}
+          />
+          <Route
+            path="/dialogs"
+            render={() => (
+              <Dialogs
+                dialogsPage={props.state.dialogsPage}
+                addMessage={props.addMessage}
+                updateNewMessageText={props.updateNewMessageText}
+                dispatch={props.dispatch}
+              />
+            )}
+          />
+          <Route path="/news" render={News} />
+          <Route path="/music" render={Music} />
+          <Route path="/settings" render={Settings} />
+        </div>
+      </div>
+    </BrowserRouter>
+  );
 };
 
 export default App;
