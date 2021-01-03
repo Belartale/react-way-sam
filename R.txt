@@ -28,13 +28,14 @@ export default <>;
 
 npm i react-router-dom
 
-route - система смотрит какой в адресе путь (URL) если в адресе новый путь то меняет компоненту
+route - система смотрит какой в адресе путь (URL) если в адресе новый путь то меняет компоненту на другую, старую удаляет
+а новую показывает
 
 для <Route path="/lorem" component={lorem} /> нужно указывать внутри <BrowserRouter></BrowserRouter>
 или же можно рендерить так: <Route path="/lorem" render={(props) => <Lorem some={props.some} />} />
 
 
-что бы без перезагрузки старницы использовать <NavLink to="/path">
+что бы без перезагрузки старницы использовать <NavLink to="/path"> // просто изменяет URL в браузере
 
 <NavLink to="/path/3"> id это под категория path
 
@@ -70,3 +71,6 @@ dispatch(action) == отправить(объект)
 
 action это объект у него должен быть type
 // type: "ADD-POST"
+export let addTextActionCreator = (params) => {
+  return { type: "ADD-POST" };
+};

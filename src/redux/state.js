@@ -1,3 +1,8 @@
+let ADD_POST = "ADD-POST";
+let UPDATE_POST = "UPDATE_POST";
+
+let NEW_MESSAGE_TEXT = "NEW-MESSAGE-TEXT";
+
 export let store = {
   _state: {
     profileData: {
@@ -71,7 +76,7 @@ export let store = {
   },
 
   dispatch(action) {
-    if (action.type === "ADD-POST") {
+    if (action.type === ADD_POST) {
       let newPost = {
         id: 1,
         likes: 0,
@@ -80,7 +85,7 @@ export let store = {
       this._state.profileData.posts.push(newPost);
       this._state.profileData.newPostText = "";
       this._callSubscribe(this._state);
-    } else if (action.type === "UPDATE-POST") {
+    } else if (action.type === UPDATE_POST) {
       this._state.profileData.newPostText = action.textPost;
       this._callSubscribe(this._state);
     }
@@ -88,3 +93,10 @@ export let store = {
 };
 
 export default store;
+
+export let addTextActionCreator = (params) => ({ type: ADD_POST });
+
+export let updataTextActionCreator = (text) => ({
+  type: UPDATE_POST,
+  textPost: text,
+});

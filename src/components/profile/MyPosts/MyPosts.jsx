@@ -1,13 +1,9 @@
 import React from "react";
 import Post from "./post/Post";
-
-let addTextActionCreator = (params) => {
-  return { type: "ADD-POST" };
-};
-
-let updataTextActionCreator = (text) => {
-  return { type: "UPDATE-POST", textPost: text };
-};
+import {
+  addTextActionCreator,
+  updataTextActionCreator,
+} from "../../../redux/state";
 
 const MyPosts = (props) => {
   let newPostElement = React.createRef();
