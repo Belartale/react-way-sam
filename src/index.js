@@ -7,21 +7,22 @@ import store from "./redux/state";
 import "./index.css";
 
 let renderApp = (props) => {
-	ReactDOM.render(
-		<React.StrictMode>
-			<App
-				state={props}
-				// addPost={store.addPost.bind(store)}
-				// updateNewPostText={store.updateNewPostText.bind(store)}
-				dispatch={store.dispatch.bind(store)}
-				//
-				addMessage={store.addMessage.bind(store)}
-				updateNewMessageText={store.updateNewMessageText.bind(store)}
-			/>
-		</React.StrictMode>,
-		document.getElementById("root")
-	);
-	serviceWorker.unregister();
+  ReactDOM.render(
+    <React.StrictMode>
+      <App
+        state={props}
+        // addPost={store.addPost.bind(store)}
+        // updateNewPostText={store.updateNewPostText.bind(store)}
+        dispatch={store.dispatch.bind(store)}
+        //
+        addMessage={store.addMessage.bind(store)}
+        updateNewMessageText={store.updateNewMessageText.bind(store)}
+        store={store}
+      />
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+  serviceWorker.unregister();
 };
 
 // export default renderApp;

@@ -9,11 +9,14 @@ import {
 const Dialogs = (props) => {
   let newDialogElement = React.createRef();
 
-  let addDialogs = (e) => {
-    e.preventDefault();
-    // let text = newDialogElement.current.value;
-    props.addMessage();
-  };
+  let state = props.store.getState().dialogsPage;
+  console.log(state);
+
+  // let addDialogs = (e) => {
+  //   e.preventDefault();
+  //   // let text = newDialogElement.current.value;
+  //   props.addMessage();
+  // };
 
   let onClick = (e) => {
     props.dispatch(sendMessageActionCreator());

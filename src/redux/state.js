@@ -1,3 +1,7 @@
+import dialogsReducer from "./dialogsReducer";
+import profileReducer from "./profileReducer";
+import sidebarReducer from "./sidebarReducer";
+
 let ADD_POST = "ADD-POST";
 let UPDATE_POST = "UPDATE_POST";
 
@@ -77,6 +81,10 @@ export let store = {
   },
 
   dispatch(action) {
+    this._state.profileData = profileReducer(this._state.profileData, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sideBar = sidebarReducer(this._state.sideBar, action);
+
     if (action.type === ADD_POST) {
       let newPost = {
         id: 1,

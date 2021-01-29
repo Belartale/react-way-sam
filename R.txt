@@ -74,3 +74,8 @@ action это объект у него должен быть type
 export let addTextActionCreator = (params) => {
   return { type: "ADD-POST" };
 };
+
+e.target.value === взять значение инпута или текстрии
+
+//reducer
+это читсая фукнция она приним state и action если нужно принимает action применяет к state и возращяет этот state (если action нету тогда просто state) 
