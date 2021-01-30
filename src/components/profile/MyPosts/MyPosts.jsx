@@ -3,7 +3,7 @@ import Post from "./post/Post";
 import {
   addTextActionCreator,
   updataTextActionCreator,
-} from "../../../redux/state";
+} from "../../../redux/profileReducer";
 
 const MyPosts = (props) => {
   let newPostElement = React.createRef();

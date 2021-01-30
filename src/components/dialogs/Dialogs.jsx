@@ -4,7 +4,7 @@ import DialogsMessage from "./DialogsMessage/DialogsMessage";
 import {
   sendMessageActionCreator,
   updataMessageActionCreator,
-} from "../../redux/state";
+} from "../../redux/dialogsReducer";
 
 const Dialogs = (props) => {
   let newDialogElement = React.createRef();

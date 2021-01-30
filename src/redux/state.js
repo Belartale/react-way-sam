@@ -2,12 +2,6 @@ import dialogsReducer from "./dialogsReducer";
 import profileReducer from "./profileReducer";
 import sidebarReducer from "./sidebarReducer";
 
-let ADD_POST = "ADD-POST";
-let UPDATE_POST = "UPDATE_POST";
-
-let SEND_MESSAGE = "SEND-MESSAGE";
-let UPDATE_MESSAGE = "NEW-MESSAGE-TEXT";
-
 export let store = {
   _state: {
     profileData: {
@@ -85,45 +79,8 @@ export let store = {
     this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
     this._state.sideBar = sidebarReducer(this._state.sideBar, action);
 
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 1,
-        likes: 0,
-        message: this._state.profileData.newPostText,
-      };
-      this._state.profileData.posts.push(newPost);
-      this._state.profileData.newPostText = "";
-      this._callSubscribe(this._state);
-    } else if (action.type === UPDATE_POST) {
-      this._state.profileData.newPostText = action.textPost;
-
-      // message
-      this._callSubscribe(this._state);
-    } else if (action.type === UPDATE_MESSAGE) {
-      this._state.dialogsPage.newMessageText = action.textPost;
-      this._callSubscribe(this._state);
-    } else if (action.type === SEND_MESSAGE) {
-      let text = this._state.dialogsPage.newMessageText;
-      this._state.dialogsPage.newMessageText = "";
-      this._state.dialogsPage.messageData.push({
-        id: 3,
-        message: text,
-      });
-      this._callSubscribe(this._state);
-    }
+    this._callSubscribe(this._state);
   },
 };
 
 export default store;
-
-export let addTextActionCreator = (params) => ({ type: ADD_POST }); // "ADD-POST"
-export let updataTextActionCreator = (text) => ({
-  type: UPDATE_POST,
-  textPost: text,
-});
-
-export let sendMessageActionCreator = (params) => ({ type: SEND_MESSAGE }); // "ADD-POST"
-export let updataMessageActionCreator = (text) => ({
-  type: UPDATE_MESSAGE,
-  textPost: text,
-});
