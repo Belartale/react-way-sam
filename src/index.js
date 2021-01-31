@@ -11,10 +11,7 @@ let renderApp = (props) => {
     <React.StrictMode>
       <App
         state={props}
-        // addPost={store.addPost.bind(store)}
-        // updateNewPostText={store.updateNewPostText.bind(store)}
         dispatch={store.dispatch.bind(store)}
-        //
         addMessage={store.addMessage.bind(store)}
         updateNewMessageText={store.updateNewMessageText.bind(store)}
         store={store}
@@ -25,9 +22,10 @@ let renderApp = (props) => {
   serviceWorker.unregister();
 };
 
-// export default renderApp;
-
 renderApp(store.getState(), store);
 
 // subscribe
-store.subscribe(renderApp);
+store.subscribe(() => {
+  let state = store.getState();
+  renderApp(state);
+});
