@@ -39,7 +39,7 @@ const App = (props) => {
             path="/profile"
             render={() => (
               <Profile
-                profileData={props.state.profileData}
+                profilePage={props.state.profilePage}
                 dispatch={props.dispatch}
               />
             )}

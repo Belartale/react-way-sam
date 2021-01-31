@@ -25,7 +25,7 @@ const MyPosts = (props) => {
       <form className="block" action="">
         <textarea
           className="control"
-          value={props.profileData.newPostText}
+          value={props.profilePage.newPostText}
           ref={newPostElement}
           onChange={onChange}
           name=""
@@ -38,7 +38,7 @@ const MyPosts = (props) => {
         </button>
       </form>
       <div>
-        <Post postData={props.profileData.posts} />
+        <Post postData={props.profilePage.posts} />
       </div>
     </div>
   );
