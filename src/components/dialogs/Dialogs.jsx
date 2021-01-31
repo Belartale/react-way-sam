@@ -12,19 +12,10 @@ const Dialogs = (props) => {
   let state = props.store.getState().dialogsPage;
   console.log(state);
 
-  // let addDialogs = (e) => {
-  //   e.preventDefault();
-  //   // let text = newDialogElement.current.value;
-  //   props.addMessage();
-  // };
-
   let onClick = (e) => {
     props.dispatch(sendMessageActionCreator());
   };
   let onChange = (e) => {
-    // let text = newDialogElement.current.value;
-    // props.updateNewMessageText(text);
-
     let body = e.target.value;
     props.dispatch(updataMessageActionCreator(body));
   };

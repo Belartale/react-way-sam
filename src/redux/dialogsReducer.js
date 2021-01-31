@@ -32,19 +32,6 @@ const dialogsReducer = (state = initialState, action) => {
     default:
       return state;
   }
-
-  // if (action.type === UPDATE_MESSAGE) {
-  //   state.newMessageText = action.textPost;
-  // } else if (action.type === SEND_MESSAGE) {
-  //   let text = state.newMessageText;
-  //   state.newMessageText = "";
-  //   state.messageData.push({
-  //     id: 3,
-  //     message: text,
-  //   });
-  // }
-
-  // return state;
 };
 
 export let sendMessageActionCreator = (params) => ({ type: SEND_MESSAGE }); // "ADD-POST"

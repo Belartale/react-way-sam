@@ -1,10 +1,9 @@
+import * as serviceWorker from "./serviceWorker";
+import store from "./redux/reduxStore";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import * as serviceWorker from "./serviceWorker";
-
-import store from "./redux/reduxStore";
 import "./index.css";
+import App from "./App";
 
 let renderApp = (props) => {
   ReactDOM.render(
@@ -12,8 +11,8 @@ let renderApp = (props) => {
       <App
         state={props}
         dispatch={store.dispatch.bind(store)}
-        addMessage={store.addMessage.bind(store)}
-        updateNewMessageText={store.updateNewMessageText.bind(store)}
+        // addMessage={store.addMessage}
+        // updateNewMessageText={store.updateNewMessageText}
         store={store}
       />
     </React.StrictMode>,
