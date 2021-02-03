@@ -8,6 +8,8 @@ import {
 import MyPosts from "./MyPosts";
 
 const MyPostsContainer = (props) => {
+  let state = props.store.getState();
+
   let dispatchAction = (e) => {
     props.dispatch(addTextActionCreator());
   };
@@ -18,7 +20,7 @@ const MyPostsContainer = (props) => {
 
   return (
     <MyPosts
-      profilePage={props.profilePage}
+      profilePage={state.profilePage}
       dispatchAction={dispatchAction}
       updateNewPostText={updateNewPostText}
     />

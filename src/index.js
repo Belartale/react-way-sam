@@ -9,10 +9,8 @@ let renderApp = (props) => {
   ReactDOM.render(
     <React.StrictMode>
       <App
-        state={props}
+        // state={props.state}
         dispatch={store.dispatch.bind(store)}
-        // addMessage={store.addMessage}
-        // updateNewMessageText={store.updateNewMessageText}
         store={store}
       />
     </React.StrictMode>,
@@ -25,6 +23,6 @@ renderApp(store.getState(), store);
 
 // subscribe
 store.subscribe(() => {
-  let state = store.getState();
-  renderApp(state);
+  // let state = store.getState();
+  renderApp();
 });
