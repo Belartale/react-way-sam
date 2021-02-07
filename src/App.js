@@ -19,7 +19,7 @@ import "./components/css/nav.css";
 import Header from "./components/header/Header";
 import SideBar from "./components/sideBar/SideBar";
 
-import Dialogs from "./components/dialogs/Dialogs";
+import DialogsContainer from "./components/dialogs/DialogsContainer";
 import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
@@ -29,28 +29,27 @@ import Profile from "./components/profile/Profile";
 import { BrowserRouter, Route } from "react-router-dom";
 
 const App = (props) => {
+  let state = props.store.getState();
+
   return (
     <BrowserRouter>
       <div className="wrapper__page">
         <Header />
-        <SideBar sideBar={props.state.sideBar} />
+        <SideBar sideBar={state.sideBar} />
         <div className="wrapper__content wrapper__content--padding_sm">
           <Route
             path="/profile"
             render={() => (
-              <Profile
-                profilePage={props.state.profilePage}
-                dispatch={props.dispatch}
-              />
+              <Profile store={props.store} dispatch={props.dispatch} />
             )}
           />
           <Route
             path="/dialogs"
             render={() => (
-              <Dialogs
-                dialogsPage={props.state.dialogsPage}
-                // addMessage={props.addMessage}
-                // updateNewMessageText={props.updateNewMessageText}
+              <DialogsContainer
+                // dialogsPage={props.state.dialogsPage}
+                addMessage={props.addMessage}
+                updateNewMessageText={props.updateNewMessageText}
                 dispatch={props.dispatch}
                 store={props.store}
               />

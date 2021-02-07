@@ -77,10 +77,12 @@ export let addTextActionCreator = (params) => {
 
 e.target.value === взять значение инпута или текстрии
 
-//reducer
+// reducer
 это читсая фукнция она приним state и action если нужно принимает action применяет к state и возращяет этот state (если action нету тогда просто state) 
 
-redux
+// redux
+
+container component === это компонента которая обслуживает нужную компоненту, то есть обертка это компонента в которою приходить грязь (store, dispatch) но в ней есть нужная компонента она читая (preseant component) 
 
 // context используеться для контейрных компонент
 
@@ -97,3 +99,4 @@ let storeContext = React.createContext(null);
     () => <Post/>
   }
 </storeContext.Consumer>
+
