@@ -100,3 +100,12 @@ let storeContext = React.createContext(null);
   }
 </storeContext.Consumer>
 
+// react-redux === это context 
+
+let mapStateToProps = (state) => {
+  return {
+    dialogsPage: state.dialogsPage,
+  };
+};
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
