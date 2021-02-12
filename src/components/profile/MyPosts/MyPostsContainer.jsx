@@ -27,9 +27,9 @@ import MyPosts from "./MyPosts";
 //   );
 // };
 
-const mapStateProps = (store) => {
+const mapStateProps = (state) => {
   return {
-    profilePage: store.getState().profilePage,
+    profilePage: state.profilePage,
   };
 };
 

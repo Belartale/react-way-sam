@@ -104,6 +104,9 @@ let storeContext = React.createContext(null);
 
 // react-redux === это context 
 
+оборазиваем в ... и передаём типапропсы для connect
+<Provider store={store}>
+
 let mapStateToProps = (state) => {
   return {
     dialogsPage: state.dialogsPage,

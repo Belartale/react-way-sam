@@ -6,9 +6,9 @@ import {
 } from "../../redux/dialogsReducer";
 import { connect } from "react-redux";
 
-let mapStateToProps = (store) => {
+let mapStateToProps = (state) => {
   return {
-    state: store.dialogsPage,
+    state: state.dialogsPage,
   };
 };
 
