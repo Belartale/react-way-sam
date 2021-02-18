@@ -90,12 +90,12 @@ context == глобальная коробка
 
 let storeContext = React.createContext(null);
 
-// для передачи контекста
+// для передачи контекста NATIVE
 <storeContext.Provider value={store}>
   <App />
 </storeContext.Provider>
 
-//для ловли контекста
+//для ловли контекста NATIVE
 <storeContext.Consumer>
   {
     () => <Post/>
