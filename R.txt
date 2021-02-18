@@ -104,7 +104,7 @@ let storeContext = React.createContext(null);
 
 // react-redux === это context 
 
-оборазиваем в ... и передаём типапропсы для connect
+оборазиваем в ... и передаём типа пропсы для connect
 <Provider store={store}>
 
 let mapStateToProps = (state) => {
