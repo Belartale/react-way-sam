@@ -114,3 +114,5 @@ let mapStateToProps = (state) => {
 };
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+// в mapStateProps будет изменять и смотреть
