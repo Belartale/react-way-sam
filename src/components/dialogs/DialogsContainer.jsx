@@ -1,10 +1,10 @@
 // import React from "react";
-import Dialogs from "./Dialogs";
 import {
   sendMessageActionCreator,
   updataMessageActionCreator,
 } from "../../redux/dialogsReducer";
 import { connect } from "react-redux";
+import Dialogs from "./Dialogs";
 
 let mapStateToProps = (state) => {
   return {
