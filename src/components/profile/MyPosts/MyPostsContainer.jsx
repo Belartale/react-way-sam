@@ -14,10 +14,17 @@ const mapStateProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    dispatchAction: (e) => {
+    addPost: (e) => {
+      e.preventDefault();
       dispatch(addTextActionCreator());
     },
+    // dispatchAction: (e) => {
+    //   dispatch(addTextActionCreator());
+    // },
 
+    // updateNewPostText: (text) => {
+    //   dispatch(updataTextActionCreator(text));
+    // },
     updateNewPostText: (text) => {
       dispatch(updataTextActionCreator(text));
     },

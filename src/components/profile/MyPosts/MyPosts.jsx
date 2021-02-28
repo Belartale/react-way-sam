@@ -4,10 +4,15 @@ import Post from "./post/Post";
 const MyPosts = (props) => {
   let newPostElement = React.createRef();
 
-  let addPost = (e) => {
-    e.preventDefault();
-    props.dispatchAction();
-  };
+  // let addPost = (e) => {
+  //   e.preventDefault();
+  //   props.dispatchAction();
+  // };
+
+  // let onChange = () => {
+  //   let text = newPostElement.current.value;
+  //   props.updateNewPostText(text);
+  // };
 
   let onChange = () => {
     let text = newPostElement.current.value;
@@ -27,7 +32,7 @@ const MyPosts = (props) => {
           cols="30"
           rows="5"
         />
-        <button className="control" onClick={addPost}>
+        <button className="control" onClick={props.addPost}>
           <p className="caption--size_3">Отправить</p>
         </button>
       </form>
