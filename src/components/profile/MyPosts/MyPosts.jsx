@@ -23,14 +23,14 @@ const MyPosts = (props) => {
     <div className="block">
       <form className="block" action="">
         <textarea
-          className="control"
-          value={props.profilePage.newPostText}
           ref={newPostElement}
-          onChange={onChange}
+          className="control"
           name=""
           id=""
           cols="30"
           rows="5"
+          value={props.profilePage.newPostText}
+          onChange={onChange}
         />
         <button className="control" onClick={props.addPost}>
           <p className="caption--size_3">Отправить</p>

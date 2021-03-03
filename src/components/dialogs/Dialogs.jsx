@@ -5,6 +5,13 @@ import DialogsMessage from "./DialogsMessage/DialogsMessage";
 const Dialogs = (props) => {
   let newDialogElement = React.createRef();
 
+  let onChange = (e) => {
+    // let text = e.target.value;
+    let text = newDialogElement.current.value;
+    props.updateNewMessageText(text);
+    console.log("ONEE");
+  };
+
   return (
     <div className="block">
       <div className="row">
@@ -25,7 +32,7 @@ const Dialogs = (props) => {
             cols="30"
             rows="10"
             value={props.state.newMessageText}
-            onChange={props.onChange}
+            onChange={onChange}
           ></textarea>
           <button className="control" onClick={props.onClick}>
             Отправить

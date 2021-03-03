@@ -40,7 +40,10 @@ const App = (props) => {
           <Route
             path="/profile"
             render={() => (
-              <Profile store={props.store} dispatch={props.dispatch} />
+              <Profile
+                dispatch={props.dispatch}
+                // store={props.store}
+              />
             )}
           />
           <Route
@@ -51,7 +54,7 @@ const App = (props) => {
                 addMessage={props.addMessage}
                 updateNewMessageText={props.updateNewMessageText}
                 dispatch={props.dispatch}
-                store={props.store}
+                // store={props.store}
               />
             )}
           />

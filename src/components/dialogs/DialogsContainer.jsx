@@ -1,9 +1,9 @@
 // import React from "react";
+import { connect } from "react-redux";
 import {
   sendMessageActionCreator,
   updataMessageActionCreator,
 } from "../../redux/dialogsReducer";
-import { connect } from "react-redux";
 import Dialogs from "./Dialogs";
 
 let mapStateToProps = (state) => {
@@ -17,10 +17,14 @@ let mapDispatchToProps = (dispatch) => {
     onClick: () => {
       dispatch(sendMessageActionCreator());
     },
-    onChange: (e) => {
-      let body = e.target.value;
-      dispatch(updataMessageActionCreator(body));
+    updateNewMessageText: (text) => {
+      dispatch(updataMessageActionCreator(text));
+      console.log("TWOO");
     },
+    // onChange: (e) => {
+    //   let body = e.target.value;
+    //   dispatch(updataMessageActionCreator(body));
+    // },
   };
 };
 
