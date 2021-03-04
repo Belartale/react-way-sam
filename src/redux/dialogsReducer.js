@@ -16,36 +16,34 @@ let initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_MESSAGE:
-      let newMessage = {
-        id: 1,
-        message: state.newMessageText,
-      };
-
+    case SEND_MESSAGE:
       let stateCopy = { ...state };
-
-      //todo
-
-      state.newMessageText = action.textPost;
+      let newDialog = {
+        id: 3,
+        message: stateCopy.newMessageText,
+      };
+      stateCopy.messageData.push(newDialog);
+      stateCopy.newMessageText = "";
       return stateCopy;
 
-    case SEND_MESSAGE:
-      let text = state.newMessageText;
-      state.newMessageText = "";
-      state.messageData.push({
-        id: 3,
-        message: text,
-      });
-      return state;
+    case UPDATE_MESSAGE: {
+      let stateCopy = { ...state };
+      stateCopy.messageData = [...state.messageData];
+      stateCopy.newMessageText = action.textDialog;
+
+      // state.newMessageText = action.textDialog;
+      return stateCopy;
+    }
 
     default:
       return state;
   }
 };
+
 // const dialogsReducer = (state = initialState, action) => {
 //   switch (action.type) {
 //     case UPDATE_MESSAGE:
-//       state.newMessageText = action.textPost;
+//       state.newMessageText = action.textDialog;
 //       return state;
 
 //     case SEND_MESSAGE:
@@ -65,7 +63,7 @@ const dialogsReducer = (state = initialState, action) => {
 export let sendMessageActionCreator = () => ({ type: SEND_MESSAGE }); // "ADD-POST"
 export let updataMessageActionCreator = (text) => ({
   type: UPDATE_MESSAGE,
-  textPost: text,
+  textDialog: text,
 });
 
 export default dialogsReducer;
