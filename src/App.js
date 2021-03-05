@@ -50,11 +50,11 @@ const App = (props) => {
             path="/dialogs"
             render={() => (
               <DialogsContainer
-                // dialogsPage={props.state.dialogsPage}
-                addMessage={props.addMessage}
-                updateNewMessageText={props.updateNewMessageText}
-                dispatch={props.dispatch}
-                // store={props.store}
+              // dialogsPage={props.state.dialogsPage}
+              // addMessage={props.addMessage}
+              // updateNewMessageText={props.updateNewMessageText}
+              // dispatch={props.dispatch}
+              // store={props.store}
               />
             )}
           />
