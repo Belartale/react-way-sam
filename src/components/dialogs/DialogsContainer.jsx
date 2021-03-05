@@ -8,7 +8,8 @@ import Dialogs from "./Dialogs";
 
 let mapStateToProps = (state) => {
   return {
-    state: state.dialogsPage,
+    state: state,
+    // state: state.dialogsPage,
   };
 };
 
