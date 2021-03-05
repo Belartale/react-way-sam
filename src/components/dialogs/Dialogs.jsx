@@ -16,11 +16,11 @@ const Dialogs = (props) => {
     <div className="block">
       <div className="row">
         <div className="cell cell--10">
-          <DialogsItem dialogsData={props.state.dialogsData} />
+          <DialogsItem dialogsData={props.state.dialogsPage.dialogsData} />
         </div>
 
         <div className="cell cell--85">
-          <DialogsMessage messageData={props.state.messageData} />
+          <DialogsMessage messageData={props.state.dialogsPage.messageData} />
         </div>
 
         <div className="cell cell--100">
@@ -31,7 +31,7 @@ const Dialogs = (props) => {
             id=""
             cols="30"
             rows="10"
-            value={props.state.newMessageText}
+            value={props.state.dialogsPage.newMessageText}
             onChange={onChange}
           ></textarea>
           <button className="control" onClick={props.onClick}>

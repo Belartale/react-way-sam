@@ -14,20 +14,24 @@ let initialState = {
   newMessageText: "something text of new message",
 };
 
-// let stateCopy = {
-//   ...state,
-//   messageData: [...state.messageData],
-// };
-// stateCopy.messageData = [...state.messageData];
+let state = initialState;
+
+let stateCopy = {
+  ...state,
+  messageData: [...state.messageData],
+};
+stateCopy.messageData = [...state.messageData];
 
 const dialogsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEND_MESSAGE:
-      let stateCopy = { ...state };
+      // let stateCopy = { ...state };
+
       let newDialog = {
         id: 3,
         message: stateCopy.newMessageText,
       };
+
       stateCopy.messageData.push(newDialog);
       stateCopy.newMessageText = "";
       return stateCopy;
@@ -36,7 +40,6 @@ const dialogsReducer = (state = initialState, action) => {
       let stateCopy = { ...state };
       stateCopy.messageData = [...state.messageData];
       stateCopy.newMessageText = action.textDialog;
-
       return stateCopy;
     }
 
