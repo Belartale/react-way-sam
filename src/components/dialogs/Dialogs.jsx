@@ -16,11 +16,20 @@ const Dialogs = (props) => {
     <div className="block">
       <div className="row">
         <div className="cell cell--10">
-          <DialogsItem dialogsData={props.state.dialogsPage.dialogsData} />
+          {/* <DialogsItem dialogsData={props.state.dialogsPage.dialogsData} /> */}
+          <ul className="list">
+            {props.state.dialogsPage.dialogsData.map((d) => (
+              <DialogsItem key={d.id} name={d.name} id={d.id} />
+            ))}
+          </ul>
         </div>
 
         <div className="cell cell--85">
-          <DialogsMessage messageData={props.state.dialogsPage.messageData} />
+          {/* <DialogsMessage messageData={props.state.dialogsPage.messageData} /> */}
+
+          {props.state.dialogsPage.messageData.map((m) => (
+            <DialogsMessage key={m.id} message={m.message} id={m.id} />
+          ))}
         </div>
 
         <div className="cell cell--100">
@@ -34,7 +43,7 @@ const Dialogs = (props) => {
             value={props.state.dialogsPage.newMessageText}
             onChange={onChange}
           ></textarea>
-          <button className="control" onClick={props.onClick}>
+          <button className="control" onClick={props.sendMessag}>
             Отправить
           </button>
         </div>
