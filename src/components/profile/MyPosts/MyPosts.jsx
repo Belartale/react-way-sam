@@ -18,6 +18,11 @@ const MyPosts = (props) => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text);
   };
+  console.log("props.profilePage.posts :>> ", props.profilePage.posts);
+
+  let elementsPosts = props.profilePage.posts.map((post) => (
+    <Post key={post.id} message={post.message} likes={post.likes} />
+  ));
 
   return (
     <div className="block">
@@ -37,7 +42,8 @@ const MyPosts = (props) => {
         </button>
       </form>
       <div>
-        <Post postData={props.profilePage.posts} />
+        {/* <Post postData={props.profilePage.posts} /> */}
+        {elementsPosts}
       </div>
     </div>
   );
