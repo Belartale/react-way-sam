@@ -9,27 +9,35 @@ const Dialogs = (props) => {
     // let text = e.target.value;
     let text = newDialogElement.current.value;
     props.updateNewMessageText(text);
-    console.log("ONEE");
+    console.log(
+      "props.state.dialogsPage.messageData :>> ",
+      props.state.dialogsPage
+    );
   };
+
+  let elementsItems = props.state.dialogsPage.dialogsData.map((d) => (
+    <DialogsItem key={d.id} name={d.name} id={d.id} />
+  ));
+  let elementsMessages = props.state.dialogsPage.messageData.map((m) => (
+    <DialogsMessage key={m.id} message={m.message} id={m.id} />
+  ));
 
   return (
     <div className="block">
       <div className="row">
         <div className="cell cell--10">
           {/* <DialogsItem dialogsData={props.state.dialogsPage.dialogsData} /> */}
-          <ul className="list">
-            {props.state.dialogsPage.dialogsData.map((d) => (
-              <DialogsItem key={d.id} name={d.name} id={d.id} />
-            ))}
-          </ul>
+          <ul className="list">{elementsItems}</ul>
         </div>
 
         <div className="cell cell--85">
           {/* <DialogsMessage messageData={props.state.dialogsPage.messageData} /> */}
 
-          {props.state.dialogsPage.messageData.map((m) => (
+          {/* {props.state.dialogsPage.messageData.map((m) => (
             <DialogsMessage key={m.id} message={m.message} id={m.id} />
-          ))}
+          ))} */}
+
+          {elementsMessages}
         </div>
 
         <div className="cell cell--100">
@@ -43,7 +51,7 @@ const Dialogs = (props) => {
             value={props.state.dialogsPage.newMessageText}
             onChange={onChange}
           ></textarea>
-          <button className="control" onClick={props.sendMessag}>
+          <button className="control" onClick={props.sendMessage}>
             Отправить
           </button>
         </div>
