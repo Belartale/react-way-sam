@@ -20,12 +20,7 @@ let mapDispatchToProps = (dispatch) => {
     },
     updateNewMessageText: (text) => {
       dispatch(updataMessageActionCreator(text));
-      console.log("TWOO");
     },
-    // onChange: (e) => {
-    //   let body = e.target.value;
-    //   dispatch(updataMessageActionCreator(body));
-    // },
   };
 };
 

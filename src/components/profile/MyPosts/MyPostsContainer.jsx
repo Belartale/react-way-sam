@@ -18,13 +18,6 @@ let mapDispatchToProps = (dispatch) => {
       e.preventDefault();
       dispatch(addTextActionCreator());
     },
-    // dispatchAction: (e) => {
-    //   dispatch(addTextActionCreator());
-    // },
-
-    // updateNewPostText: (text) => {
-    //   dispatch(updataTextActionCreator(text));
-    // },
     updateNewPostText: (text) => {
       dispatch(updataTextActionCreator(text));
     },

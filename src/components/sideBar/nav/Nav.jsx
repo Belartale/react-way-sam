@@ -50,6 +50,15 @@ const Nav = (props) => {
             <span className="caption caption--size_3 ">settings</span>
           </NavLink>
         </li>
+        <li className="list__item list__item--bottom_sm">
+          <NavLink
+            className="link"
+            activeClassName="nav__link_active"
+            to="/users"
+          >
+            <span className="caption caption--size_3 ">users</span>
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

@@ -50,7 +50,7 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export let sendMessageActionCreator = () => ({ type: SEND_MESSAGE }); // "ADD-POST"
+export let sendMessageActionCreator = () => ({ type: SEND_MESSAGE });
 export let updataMessageActionCreator = (text) => ({
   type: UPDATE_MESSAGE,
   textDialog: text,

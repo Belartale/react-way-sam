@@ -25,6 +25,7 @@ import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 
 import Profile from "./components/profile/Profile";
+import Users from "./components/users/Users";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -61,6 +62,7 @@ const App = (props) => {
           <Route path="/news" render={News} />
           <Route path="/music" render={Music} />
           <Route path="/settings" render={Settings} />
+          <Route path="/users" render={Users} />
         </div>
       </div>
     </BrowserRouter>

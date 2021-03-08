@@ -4,16 +4,6 @@ import Post from "./post/Post";
 const MyPosts = (props) => {
   let newPostElement = React.createRef();
 
-  // let addPost = (e) => {
-  //   e.preventDefault();
-  //   props.dispatchAction();
-  // };
-
-  // let onChange = () => {
-  //   let text = newPostElement.current.value;
-  //   props.updateNewPostText(text);
-  // };
-
   let onChange = () => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text);
