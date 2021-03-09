@@ -25,7 +25,7 @@ import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 
 import Profile from "./components/profile/Profile";
-import Users from "./components/users/Users";
+import UsersContainer from "./components/users/UsersContainer";
 
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -38,31 +38,12 @@ const App = (props) => {
         <Header />
         <SideBar sideBar={state.sideBar} />
         <div className="wrapper__content wrapper__content--padding_sm">
-          <Route
-            path="/profile"
-            render={() => (
-              <Profile
-                dispatch={props.dispatch}
-                // store={props.store}
-              />
-            )}
-          />
-          <Route
-            path="/dialogs"
-            render={() => (
-              <DialogsContainer
-              // dialogsPage={props.state.dialogsPage}
-              // addMessage={props.addMessage}
-              // updateNewMessageText={props.updateNewMessageText}
-              // dispatch={props.dispatch}
-              // store={props.store}
-              />
-            )}
-          />
+          <Route path="/profile" render={() => <Profile />} />
+          <Route path="/dialogs" render={() => <DialogsContainer />} />
           <Route path="/news" render={News} />
           <Route path="/music" render={Music} />
           <Route path="/settings" render={Settings} />
-          <Route path="/users" render={Users} />
+          <Route path="/users" render={() => <UsersContainer />} />
         </div>
       </div>
     </BrowserRouter>
