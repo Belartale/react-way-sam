@@ -1,9 +1,38 @@
 import React from "react";
 
 const Users = (props) => {
-  console.log("props :>> ", props);
+  if (props.users == false) {
+    props.setUsers([
+      {
+        id: 1,
+        followed: true,
+        firstName: "Artur",
+        status: "Lorem asdas asd asd a",
+        location: { country: "Ukraine", city: "Kiev" },
+        photo: "https://svgsilh.com/svg/2098873.svg",
+      },
+      {
+        id: 2,
+        followed: false,
+        firstName: "Artem",
+        status: "ASD ASD ASD AD FASDFKJ",
+        location: { country: "Ukraine", city: "Odessa" },
+        photo: "https://svgsilh.com/svg/2098873.svg",
+      },
+      {
+        id: 3,
+        followed: false,
+        firstName: "Artem",
+        status: "ASD ASD ASD AD FASDFKJ",
+        location: { country: "Ukraine", city: "Odessa" },
+        photo: "https://svgsilh.com/svg/2098873.svg",
+      },
+    ]);
+  }
 
-  // let elementsUsers = (u) => {};
+  setTimeout(() => {
+    console.log("props :>> ", props);
+  }, 10);
 
   return (
     <div>
@@ -28,11 +57,11 @@ const Users = (props) => {
               </button>
             )}
             <div>
-              <img className="img img--sm img--radius" src={u.photo} alt="" />
+              <img className="img img--sm " src={u.photo} alt="adsad" />
             </div>
             <div>{u.firstName}</div>
             <div>{u.status}</div>
-            <div>{u.location.country}</div>
+            {/* <div>{u.location.country}</div> */}
           </div>
         );
       })}

@@ -17,8 +17,10 @@ let mapDispatchToProps = (dispatch) => {
     unfollow: (usersId) => {
       dispatch(unfollowAC(usersId));
     },
-    setUsers: (usersId) => {
-      dispatch(setUsersAC(usersId));
+    setUsers: (users) => {
+      users.forEach((user) => {
+        dispatch(setUsersAC(user));
+      });
     },
   };
 };
