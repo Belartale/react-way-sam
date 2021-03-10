@@ -4,28 +4,26 @@ let SET_USERS = "SET_USERS";
 
 let initialState = {
   users: [
-    {
-      id: 1,
-      followed: true,
-      firstName: "Artur",
-      status: "Lorem asdas asd asd a",
-      location: { country: "Ukraine", city: "Kiev" },
-      photo: "",
-    },
-    {
-      id: 2,
-      followed: false,
-      firstName: "Artem",
-      status: "ASD ASD ASD AD FASDFKJ",
-      location: { country: "Ukraine", city: "Odessa" },
-      photo: "",
-    },
+    // {
+    //   id: 1,
+    //   followed: true,
+    //   firstName: "Artur",
+    //   status: "Lorem asdas asd asd a",
+    //   location: { country: "Ukraine", city: "Kiev" },
+    //   photo: "https://svgsilh.com/svg/2098873.svg",
+    // },
+    // {
+    //   id: 2,
+    //   followed: false,
+    //   firstName: "Artem",
+    //   status: "ASD ASD ASD AD FASDFKJ",
+    //   location: { country: "Ukraine", city: "Odessa" },
+    //   photo: "https://svgsilh.com/svg/2098873.svg",
+    // },
   ],
 };
 
 const usersReducer = (state = initialState, action) => {
-  // let stateCopy;
-
   switch (action.type) {
     case FOLLOW:
       return {
