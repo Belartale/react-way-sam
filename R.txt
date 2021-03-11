@@ -116,3 +116,8 @@ let mapStateToProps = (state) => {
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 // в mapStateProps будет изменять и смотреть
+// а в mapDispatchToProps будут функции (которые дальше передаються)
+
+Ошибка Maximum update depth exceeeded == это постоянно идёт по кругу: state > component > state > ... и react ломаеться
+
+REST API === запрос на сервак

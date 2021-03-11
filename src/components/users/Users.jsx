@@ -1,7 +1,7 @@
 import React from "react";
 
 const Users = (props) => {
-  if (props.users == false) {
+  if (props.users == 0) {
     props.setUsers([
       {
         id: 1,
@@ -29,10 +29,6 @@ const Users = (props) => {
       },
     ]);
   }
-
-  setTimeout(() => {
-    console.log("props :>> ", props);
-  }, 10);
 
   return (
     <div>

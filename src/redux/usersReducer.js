@@ -35,7 +35,7 @@ const usersReducer = (state = initialState, action) => {
       setTimeout(() => {
         console.log("state", JSON.stringify(state));
       }, 100);
-      return { ...state, users: [...state.users, action.users] };
+      return { ...state, users: [...state.users, ...action.users] };
 
     default:
       return state;
