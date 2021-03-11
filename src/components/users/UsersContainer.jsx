@@ -19,9 +19,6 @@ let mapDispatchToProps = (dispatch) => {
     },
     setUsers: (users) => {
       dispatch(setUsersAC(users));
-      // users.forEach((user) => {
-      //   dispatch(setUsersAC(user));
-      // });
     },
   };
 };

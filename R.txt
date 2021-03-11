@@ -120,4 +120,6 @@ const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 Ошибка Maximum update depth exceeeded == это постоянно идёт по кругу: state > component > state > ... и react ломаеться
 
-REST API === запрос на сервак
+REST API == запрос на сервак
+
+API === интерфейс взаемод. с программой
