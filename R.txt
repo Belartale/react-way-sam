@@ -123,3 +123,5 @@ const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 REST API == запрос на сервак
 
 API === интерфейс взаемод. с программой
+
+axios === fetch
