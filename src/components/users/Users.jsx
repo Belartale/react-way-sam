@@ -1,5 +1,6 @@
 import React from "react";
 import * as axios from "axios";
+import userImg from "../../img/svg_avatar.svg";
 
 const Users = (props) => {
   if (props.users.length === 0) {
@@ -12,30 +13,34 @@ const Users = (props) => {
       });
   }
 
+  let buttonUnFollow = (u) => {
+    return u.followed ? (
+      <button
+        onClick={() => {
+          props.unfollow(u.id);
+        }}
+      >
+        Unfollowed
+      </button>
+    ) : (
+      <button
+        onClick={() => {
+          props.follow(u.id);
+        }}
+      >
+        Followed
+      </button>
+    );
+  };
+
   return (
     <div>
       {props.users.map((u) => {
         return (
           <div key={u.id} className="caption--size_3">
-            {u.followed ? (
-              <button
-                onClick={() => {
-                  props.unfollow(u.id);
-                }}
-              >
-                Unfollowed
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  props.follow(u.id);
-                }}
-              >
-                Followed
-              </button>
-            )}
+            {buttonUnFollow(u)}
             <div>
-              <img className="img img--sm " src={u.photos.small} alt="no img" />
+              <img className="img img--sm " src={userImg} alt="no img" />
             </div>
             <div>{u.name}</div>
             <div>{u.status}</div>
