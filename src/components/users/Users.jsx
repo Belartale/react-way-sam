@@ -13,18 +13,18 @@ class Users extends React.Component {
         this.props.setUsers(response.data.items);
       });
   }
-  getUsers = () => {
-    if (this.props.users.length === 0) {
-      // https://social-network.samuraijs.com/docs#
-      axios
-        .get("https://social-network.samuraijs.com/api/1.0/users")
-        .then((response) => {
-          console.log("responde", response.data.items);
-          // debugger;
-          this.props.setUsers(response.data.items);
-        });
-    }
-  };
+  // getUsers = () => {
+  //   if (this.props.users.length === 0) {
+  //     // https://social-network.samuraijs.com/docs#
+  //     axios
+  //       .get("https://social-network.samuraijs.com/api/1.0/users")
+  //       .then((response) => {
+  //         console.log("responde", response.data.items);
+  //         // debugger;
+  //         this.props.setUsers(response.data.items);
+  //       });
+  //   }
+  // };
 
   buttonUnFollow = (u) => {
     return u.followed ? (
