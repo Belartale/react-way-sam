@@ -3,8 +3,7 @@ import * as axios from "axios";
 import userImg from "../../img/svg_avatar.svg";
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
     axios
       .get("https://social-network.samuraijs.com/api/1.0/users")
       .then((response) => {
@@ -13,6 +12,17 @@ class Users extends React.Component {
         this.props.setUsers(response.data.items);
       });
   }
+
+  // constructor(props) {
+  //   super(props);
+  //   axios
+  //     .get("https://social-network.samuraijs.com/api/1.0/users")
+  //     .then((response) => {
+  //       console.log("responde", response.data.items);
+  //       // debugger;
+  //       this.props.setUsers(response.data.items);
+  //     });
+  // }
   // getUsers = () => {
   //   if (this.props.users.length === 0) {
   //     // https://social-network.samuraijs.com/docs#
