@@ -6,6 +6,9 @@ import Users from "./Users";
 const mapStateProps = (state) => {
   return {
     users: state.usersPage.users,
+    totalUsersCount: state.usersPage.totalUsersCount,
+    pageSize: state.usersPage.pageSize,
+    currentPage: state.usersPage.currentPage,
   };
 };
 
