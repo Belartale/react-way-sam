@@ -13,7 +13,7 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FOLLOW:
+    case FOLLOW: {
       return {
         ...state,
         users: state.users.map((u) => {
@@ -23,8 +23,8 @@ const usersReducer = (state = initialState, action) => {
           return u;
         }),
       };
-
-    case UNFOLLOW:
+    }
+    case UNFOLLOW: {
       return {
         ...state,
         users: state.users.map((u) => {
@@ -34,20 +34,19 @@ const usersReducer = (state = initialState, action) => {
           return u;
         }),
       };
-
-    case SET_USERS:
+    }
+    case SET_USERS: {
       return { ...state, users: action.users };
-
-    case SET_CURRENT_PAGE:
+    }
+    case SET_CURRENT_PAGE: {
       return { ...state, currentPage: action.newCurrentPage };
-
-    case SET_USERS_TOTAL_COUNT:
-      console.log("TOTAL !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-      console.log(`action.newTotalCount`, action.newTotalCount);
+    }
+    case SET_USERS_TOTAL_COUNT: {
       return { ...state, totalUsersCount: action.newTotalCount };
-
-    default:
+    }
+    default: {
       return state;
+    }
   }
 };
 
