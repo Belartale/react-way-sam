@@ -4,9 +4,9 @@ const News = () => {
   return (
     <div>
       <p>News</p>
-      <Button variant="contained" color="primary">
+      {/* <Button variant="contained" color="primary">
         some btn
-      </Button>
+      </Button> */}
     </div>
   );
 };
