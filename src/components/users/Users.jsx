@@ -1,3 +1,4 @@
+import Avatar from "@material-ui/core/Avatar";
 import React from "react";
 // import * as axios from "axios";
 import userImg from "../../img/svg_avatar.svg";
@@ -10,11 +11,20 @@ let Users = (props) => {
     pages.push(index);
   }
 
+  // let checkPhoto = (photo) => {
+  //   if (photo === null) {
+  //     return userImg;
+  //   }
+  // };
+
   let checkPhoto = (photo) => {
     if (photo === null) {
-      return userImg;
+      return <Avatar />;
+    } else {
+      return <Avatar src={photo} />;
     }
   };
+
   return (
     <div className="caption--size_2">
       {pages.map((page) => {
@@ -37,11 +47,12 @@ let Users = (props) => {
           <div key={u.id}>
             {props.buttonUnFollow(u)}
             <div>
-              <img
+              {checkPhoto(u.photos.small)}
+              {/* <img
                 className="img img--sm "
                 src={checkPhoto(u.photos.small)}
                 alt="avatar"
-              />
+              /> */}
             </div>
             <div>{u.name}</div>
             <div>{u.status}</div>
