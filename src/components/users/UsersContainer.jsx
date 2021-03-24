@@ -10,6 +10,12 @@ import {
 import * as axios from "axios";
 import Users from "./Users";
 
+//mUI
+import { makeStyles } from "@material-ui/core/styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
+//!!!!!!!!!!!!!!!
+
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
     axios
@@ -54,19 +60,26 @@ class UsersAPIComponent extends React.Component {
   };
   render() {
     return (
-      <Users
-        onChangePage={this.onChangePage}
-        buttonUnFollow={this.buttonUnFollow}
-        follow={this.props.follow}
-        unfollow={this.props.unfollow}
-        setUsers={this.props.setUsers}
-        setCurrentPage={this.props.setCurrentPage}
-        setUsersTotalCount={this.props.setUsersTotalCount}
-        users={this.props.users}
-        totalUsersCount={this.props.totalUsersCount}
-        pageSize={this.props.pageSize}
-        currentPage={this.props.currentPage}
-      />
+      <>
+        {this.props.isFetching == true ? (
+          <CircularProgress />
+        ) : (
+          console.log("sdasd")
+        )}
+        <Users
+          onChangePage={this.onChangePage}
+          buttonUnFollow={this.buttonUnFollow}
+          follow={this.props.follow}
+          unfollow={this.props.unfollow}
+          setUsers={this.props.setUsers}
+          setCurrentPage={this.props.setCurrentPage}
+          setUsersTotalCount={this.props.setUsersTotalCount}
+          users={this.props.users}
+          totalUsersCount={this.props.totalUsersCount}
+          pageSize={this.props.pageSize}
+          currentPage={this.props.currentPage}
+        />
+      </>
     );
   }
 }
@@ -77,6 +90,7 @@ const mapStateProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     pageSize: state.usersPage.pageSize,
     currentPage: state.usersPage.currentPage,
+    isFetching: state.isFetching,
   };
 };
 
