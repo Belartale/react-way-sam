@@ -6,36 +6,41 @@ import {
   setUsersAC,
   setCurrentPageAC,
   setUsersTotalCountAC,
+  toggleIsFetchingAC,
 } from "../../redux/usersReducer";
 import * as axios from "axios";
 import Users from "./Users";
 
 //mUI
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 //!!!!!!!!!!!!!!!
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
+    this.props.toggleIsFetching(true);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
+        this.props.setUsersTotalCount(response.data.totalCount);
       });
   }
 
   onChangePage = (page) => {
+    this.props.toggleIsFetching(true);
     this.props.setCurrentPage(page);
     axios
       .get(
         `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`
       )
       .then((response) => {
+        this.props.toggleIsFetching(false);
         this.props.setUsers(response.data.items);
-        this.props.setUsersTotalCount(response.data.totalCount);
       });
   };
 
@@ -61,11 +66,8 @@ class UsersAPIComponent extends React.Component {
   render() {
     return (
       <>
-        {this.props.isFetching == true ? (
-          <CircularProgress />
-        ) : (
-          console.log("sdasd")
-        )}
+        {this.props.isFetching ? <CircularProgress /> : null}
+
         <Users
           onChangePage={this.onChangePage}
           buttonUnFollow={this.buttonUnFollow}
@@ -90,7 +92,7 @@ const mapStateProps = (state) => {
     totalUsersCount: state.usersPage.totalUsersCount,
     pageSize: state.usersPage.pageSize,
     currentPage: state.usersPage.currentPage,
-    isFetching: state.isFetching,
+    isFetching: state.usersPage.isFetching,
   };
 };
 
@@ -110,6 +112,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setUsersTotalCount: (totalCount) => {
       dispatch(setUsersTotalCountAC(totalCount));
+    },
+    toggleIsFetching: (isFetching) => {
+      dispatch(toggleIsFetchingAC(isFetching));
     },
   };
 };
