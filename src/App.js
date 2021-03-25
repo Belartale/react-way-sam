@@ -22,7 +22,7 @@ import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 
-import Profile from "./components/profile/Profile";
+import ProfileContainer from "./components/profile/ProfileContainer";
 import UsersContainer from "./components/users/UsersContainer";
 
 import { BrowserRouter, Route } from "react-router-dom";
@@ -57,7 +57,7 @@ const App = (props) => {
         <Header />
         <SideBar sideBar={state.sideBar} />
         <div className="wrapper__content wrapper__content--padding_sm">
-          <Route path="/profile" render={() => <Profile />} />
+          <Route path="/profile" render={() => <ProfileContainer />} />
           <Route path="/dialogs" render={() => <DialogsContainer />} />
           <Route path="/news" render={News} />
           <Route path="/music" render={Music} />

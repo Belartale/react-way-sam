@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 import {
   addTextActionCreator,
-  updataTextActionCreator,
+  updateTextActionCreator,
 } from "../../../redux/profileReducer";
 import MyPosts from "./MyPosts";
 
@@ -19,7 +19,7 @@ let mapDispatchToProps = (dispatch) => {
       dispatch(addTextActionCreator());
     },
     updateNewPostText: (text) => {
-      dispatch(updataTextActionCreator(text));
+      dispatch(updateTextActionCreator(text));
     },
   };
 };

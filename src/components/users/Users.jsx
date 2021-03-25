@@ -1,7 +1,7 @@
 import Avatar from "@material-ui/core/Avatar";
 import React from "react";
 // import * as axios from "axios";
-import userImg from "../../img/svg_avatar.svg";
+// import userImg from "../../img/svg_avatar.svg";
 
 let Users = (props) => {
   // let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
