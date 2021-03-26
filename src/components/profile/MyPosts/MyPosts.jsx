@@ -8,7 +8,6 @@ const MyPosts = (props) => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text);
   };
-  console.log("props.profilePage.posts :>> ", props.profilePage.posts);
 
   let elementsPosts = props.profilePage.posts.map((post) => (
     <Post key={post.id} message={post.message} likes={post.likes} />
