@@ -57,7 +57,7 @@ const App = (props) => {
         <Header />
         <SideBar sideBar={state.sideBar} />
         <div className="wrapper__content wrapper__content--padding_sm">
-          <Route path="/profile" render={() => <ProfileContainer />} />
+          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
           <Route path="/dialogs" render={() => <DialogsContainer />} />
           <Route path="/news" render={News} />
           <Route path="/music" render={Music} />

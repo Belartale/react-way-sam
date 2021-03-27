@@ -5,6 +5,7 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileInfo from "./profileInfo/ProfileInfo";
 
 import { setUserProfile } from "../../redux/profileReducer";
+import { withRouter } from "react-router-dom";
 
 const Profile = (props) => {
   console.log("Profile :>> ", props);
@@ -22,6 +23,10 @@ const Profile = (props) => {
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
+    debugger;
+    // let userId = ;
+    if (!this.props) {
+    }
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
       .then((response) => {
@@ -46,4 +51,7 @@ const mapDispatchToProps = {
   setUserProfile,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(ProfileContainer));

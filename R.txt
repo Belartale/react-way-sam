@@ -104,7 +104,7 @@ let storeContext = React.createContext(null);
 
 // react-redux === это context 
 
-оборазиваем в ... и передаём типа пропсы для connect
+оборачиваем в ... и передаём типа пропсы для connect
 <Provider store={store}>
 
 let mapStateToProps = (state) => {
@@ -154,6 +154,14 @@ get запрос идёт после ? если запросов много то
 
 SIDE EFFECT в функциональных функциях ЗАПРЕЩЕННО! (но можно в хуках)
 
+withRouter === смотрить какой URL и прокидывает это как пропсы
+и смотрим в this.props в match есть ли совпадение 
+<Route path="/profile/:userId"
+:userId == необязятелен, может быть а может и нет, тоесть можно написать 
+<Route path="/profile/:userId?" === это значит что этот паремерт необязателен 
+
+
+M-UI
 
 AppBar === используеться кантейнер для контекстного панели или навигациюной панели
 
