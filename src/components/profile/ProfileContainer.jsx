@@ -8,33 +8,24 @@ import { setUserProfile } from "../../redux/profileReducer";
 import { withRouter } from "react-router-dom";
 
 const Profile = (props) => {
-  console.log("Profile :>> ", props);
   return (
     <div className="card">
       <ProfileInfo profile={props.profile} />
-      <MyPostsContainer
-      // profilePage={props.profilePage}
-      // dispatch={props.dispatch}
-      // store={props.store}
-      />
+      <MyPostsContainer />
     </div>
   );
 };
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    debugger;
-    // let userId = ;
     if (!this.props) {
+      //todo
     }
     axios
       .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
       .then((response) => {
         let realData = response.data;
         this.props.setUserProfile(realData);
-        // this.props.toggleIsFetching(false);
-        // this.props.setUsersTotalCount(response.data.totalCount);
-        // this.render();
       });
   }
 

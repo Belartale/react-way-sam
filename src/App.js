@@ -14,7 +14,7 @@ import "./components/css/list.css";
 import "./components/css/block.css";
 import "./components/css/nav.css";
 
-import Header from "./components/header/Header";
+import HeaderContainer from "./components/header/Header";
 import SideBar from "./components/sideBar/SideBar";
 
 import DialogsContainer from "./components/dialogs/DialogsContainer";
@@ -54,7 +54,7 @@ const App = (props) => {
         </Container>
       </AppBar> */}
       <div className="wrapper__page">
-        <Header />
+        <HeaderContainer />
         <SideBar sideBar={state.sideBar} />
         <div className="wrapper__content wrapper__content--padding_sm">
           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />

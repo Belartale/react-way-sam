@@ -2,8 +2,6 @@ import { Avatar, CircularProgress } from "@material-ui/core";
 import React from "react";
 
 const ProfileInfo = (props) => {
-  console.log("INFO :>> ", props);
-
   if (!props.profile) {
     return <CircularProgress />;
   } else {
