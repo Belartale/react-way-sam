@@ -35,24 +35,6 @@ const App = (props) => {
 
   return (
     <BrowserRouter>
-      {/* <AppBar position="static">
-        <Container>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6">News</Typography>
-            <Box mr={3}>
-              <Button color="inherit" variant="outlined">
-                Login
-              </Button>
-            </Box>
-            <Button color="secondary" variant="contained">
-              Login
-            </Button>
-          </Toolbar>
-        </Container>
-      </AppBar> */}
       <div className="wrapper__page">
         <HeaderContainer />
         <SideBar sideBar={state.sideBar} />
