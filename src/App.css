@@ -1,59 +1,59 @@
 :root {
-	/*fonts*/
-	--roboro: "Roboto", sans-serif;
-	--color_page: rgb(225, 225, 225);
-	--color_nav__link: rgb(189, 0, 0);
+  /*fonts*/
+  --roboro: "Roboto", sans-serif;
+  --color_page: rgb(225, 225, 225);
+  --color_nav__link: rgb(189, 0, 0);
 
-	--indents_inside_page: 2em;
+  --indents_inside_page: 2em;
 }
 html,
 body {
-	font-size: 10px;
+  font-size: 10px;
 }
 
 * {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
 .wrapper__page {
-	display: grid;
-	grid-template: [start] "wrapper__header wrapper__header" auto [row2] [row2] "side_bar wrapper__content" 1fr [row-end] / 2fr 10fr;
-	grid-gap: 10px;
+  display: grid;
+  grid-template: [start] "wrapper__header wrapper__header" auto [row2] [row2] "side_bar wrapper__content" 1fr [row-end] / 2fr 10fr;
+  grid-gap: 10px;
 }
 
 .wrapper__header {
-	grid-area: wrapper__header;
-	padding: var(--indents_inside_page);
-	background-color: var(--color_page);
+  grid-area: wrapper__header;
+  padding: var(--indents_inside_page);
+  background-color: var(--color_page);
 }
 
 .logo {
-	min-width: 1px;
+  min-width: 1px;
 }
 .logo__inside {
-	font-family: var(--roboto);
-	font-size: 3em;
+  font-family: var(--roboto);
+  font-size: 3em;
 }
 
 .side_bar {
-	grid-area: side_bar;
-	background-color: var(--color_page);
+  grid-area: side_bar;
+  background-color: var(--color_page);
 }
 .side_bar--padding_sm {
-	padding: var(--indents_inside_page);
+  padding: var(--indents_inside_page);
 }
 
 .wrapper__content {
-	grid-area: wrapper__content;
-	background-color: var(--color_page);
+  grid-area: wrapper__content;
+  background-color: var(--color_page);
 }
 
 .wrapper__content--padding_sm {
-	padding: var(--indents_inside_page);
+  padding: var(--indents_inside_page);
 }

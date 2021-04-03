@@ -1,4 +1,14 @@
-import { Avatar } from "@material-ui/core";
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Button,
+  CircularProgress,
+  Container,
+  makeStyles,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
@@ -8,35 +18,70 @@ import { setAuthUserData } from "../../redux/authReducer";
 const Header = (props) => {
   function checkLogin(params) {
     console.log(params);
-    if (params.isAuth === true) {
-      return <Avatar />;
+    if (!params.isAuth === true) {
+      return <CircularProgress />;
     } else {
-      return <p>Login</p>;
+      return <Avatar />;
     }
   }
 
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(1),
+    },
+    title: {
+      flexGrow: 1,
+    },
+  }));
+
+  const classes = useStyles();
+
   return (
-    <header className="wrapper__header">
-      <div className="block">
-        <div className="row row--justify_center block--relative">
-          <h1 className="caption caption--size_1">Empire</h1>
-          <NavLink to="/login">{checkLogin(props)}</NavLink>
+    <>
+      <header className="wrapper__header">
+        <AppBar position="relative">
+          <Container fixed>
+            <Toolbar>
+              <Box className={classes.menuButton}></Box>
+              <Typography className={classes.title} variant="h1">
+                asadsd
+              </Typography>
+              <Box>
+                <Button color="secondary" variant="outline">
+                  111
+                </Button>
+                <Button color="secondary" variant="outline">
+                  22222
+                </Button>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
 
-          <NavLink
-            className="link block--absolute_right_sm block--z_index_lg"
-            to="/settings"
-          >
-            <img
-              className="img--sm"
-              src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png"
-              alt="Settings"
-            />
-          </NavLink>
+        <div className="block">
+          <div className="row row--justify_center block--relative">
+            <h1 className="caption caption--size_1">Empire</h1>
+            <NavLink to="/login">{checkLogin(props)}</NavLink>
 
-          <button className="control control__btn block--absolute block--z_index_lg block--top_sm block--right_sm"></button>
+            <NavLink
+              className="link block--absolute_right_sm block--z_index_lg"
+              to="/settings"
+            >
+              <img
+                className="img--sm"
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png"
+                alt="Settings"
+              />
+            </NavLink>
+
+            <button className="control control__btn block--absolute block--z_index_lg block--top_sm block--right_sm"></button>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 
