@@ -29,8 +29,8 @@ a {
 
 .wrapper__header {
   grid-area: wrapper__header;
-  padding: var(--indents_inside_page);
-  background-color: var(--color_page);
+  /* padding: var(--indents_inside_page); */
+  /* background-color: var(--color_page); */
 }
 
 .logo {
@@ -43,7 +43,7 @@ a {
 
 .side_bar {
   grid-area: side_bar;
-  background-color: var(--color_page);
+  /* background-color: var(--color_page); */
 }
 .side_bar--padding_sm {
   padding: var(--indents_inside_page);
@@ -51,7 +51,7 @@ a {
 
 .wrapper__content {
   grid-area: wrapper__content;
-  background-color: var(--color_page);
+  /* background-color: var(--color_page); */
 }
 
 .wrapper__content--padding_sm {

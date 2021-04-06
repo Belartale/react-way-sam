@@ -3,33 +3,91 @@ import {
   Avatar,
   Box,
   Button,
-  CircularProgress,
+  ButtonBase,
   Container,
+  Grid,
   makeStyles,
+  Popover,
   Toolbar,
   Typography,
 } from "@material-ui/core";
 import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { setAuthUserData } from "../../redux/authReducer";
 
-const Header = (props) => {
-  function checkLogin(params) {
-    console.log(params);
-    if (!params.isAuth === true) {
-      return <CircularProgress />;
-    } else {
-      return <Avatar />;
-    }
-  }
+const AuthAvatar = (props) => {
+  const useStyles = makeStyles((theme) => ({}));
 
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
+  return (
+    <Box>
+      <ButtonBase
+        aria-describedby={id}
+        variant="contained"
+        color="primary"
+        onClick={handleClick}
+      >
+        <Avatar />
+      </ButtonBase>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+      >
+        <Typography className={classes.typography}>
+          The content of the Popover.
+        </Typography>
+        <Typography className={classes.typography}>
+          The content of the Popover.
+        </Typography>
+        <Typography className={classes.typography}>
+          The content of the Popover.
+        </Typography>
+      </Popover>
+    </Box>
+  );
+};
+
+{
+  /* <NavLink
+      className="link block--absolute_right_sm block--z_index_lg"
+      to="/settings"
+    >
+      
+    </NavLink> */
+}
+
+const Header = (props) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     },
-    menuButton: {
+
+    marginRightSmall: {
       marginRight: theme.spacing(1),
     },
     title: {
@@ -39,49 +97,97 @@ const Header = (props) => {
 
   const classes = useStyles();
 
-  return (
-    <>
-      <header className="wrapper__header">
-        <AppBar position="relative">
-          <Container fixed>
-            <Toolbar>
-              <Box className={classes.menuButton}></Box>
-              <Typography className={classes.title} variant="h1">
-                asadsd
-              </Typography>
-              <Box>
-                <Button color="secondary" variant="outline">
-                  111
-                </Button>
-                <Button color="secondary" variant="outline">
-                  22222
-                </Button>
-              </Box>
-            </Toolbar>
-          </Container>
-        </AppBar>
-
-        <div className="block">
-          <div className="row row--justify_center block--relative">
-            <h1 className="caption caption--size_1">Empire</h1>
-            <NavLink to="/login">{checkLogin(props)}</NavLink>
-
-            <NavLink
-              className="link block--absolute_right_sm block--z_index_lg"
-              to="/settings"
-            >
-              <img
-                className="img--sm"
-                src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Windows_Settings_app_icon.png"
-                alt="Settings"
-              />
-            </NavLink>
-
-            <button className="control control__btn block--absolute block--z_index_lg block--top_sm block--right_sm"></button>
-          </div>
+  function checkLogin(params) {
+    console.log(params);
+    if (!params.isAuth === true) {
+      return (
+        <div>
+          <Button
+            className={classes.marginRightSmall}
+            color="secondary"
+            variant="outlined"
+          >
+            Sign in
+          </Button>
+          <Button color="secondary" variant="contained">
+            Create account
+          </Button>
         </div>
-      </header>
-    </>
+      );
+    } else {
+      return <AuthAvatar />;
+    }
+  }
+
+  // const [anchorEl, setAnchorEl] = React.useState(null);
+
+  // const handleClick = (event) => {
+  //   setAnchorEl(event.currentTarget);
+  // };
+
+  // const handleClose = () => {
+  //   setAnchorEl(null);
+  // };
+
+  // const open = Boolean(anchorEl);
+  // const id = open ? "simple-popover" : undefined;
+
+  {
+    /* <Button
+                  aria-describedby={id}
+                  variant="contained"
+                  color="primary"
+                  onClick={handleClick}
+                >
+                  Open Popover
+                </Button>
+                <Popover
+                  id={id}
+                  open={open}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "center",
+                  }}
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "center",
+                  }}
+                >
+                  <Typography className={classes.typography}>
+                    The content of the Popover.
+                  </Typography>
+                  <Typography className={classes.typography}>
+                    The content of the Popover.
+                  </Typography>
+                  <Typography className={classes.typography}>
+                    The content of the Popover.
+                  </Typography>
+                </Popover> */
+  }
+
+  return (
+    <AppBar position="relative" className="wrapper__header">
+      <Container>
+        <Toolbar>
+          <Typography
+            className={classes.title}
+            variant="h3"
+            style={{ color: "red" }}
+          >
+            CORSAIRS
+          </Typography>
+          <Box>
+            <Grid container>
+              <Grid item>
+                <Box>{checkLogin(props)}</Box>
+              </Grid>
+            </Grid>
+          </Box>
+        </Toolbar>
+      </Container>
+    </AppBar>
   );
 };
 
@@ -111,5 +217,3 @@ const mapDispatchToProps = {
   setAuthUserData,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);
-
-// export default HeaderContainer;
