@@ -18,7 +18,12 @@ import { connect } from "react-redux";
 import { setAuthUserData } from "../../redux/authReducer";
 
 const AuthAvatar = (props) => {
-  const useStyles = makeStyles((theme) => ({}));
+  const useStyles = makeStyles((theme) => ({
+    itemUlUnderAvatar: {
+      margin: theme.spacing(1),
+      fontSize: "1.2em",
+    },
+  }));
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -58,30 +63,18 @@ const AuthAvatar = (props) => {
           horizontal: "center",
         }}
       >
-        <Typography className={classes.typography}>
-          The content of the Popover.
+        <Typography className={classes.itemUlUnderAvatar}>
+          Your name: {props.login}
         </Typography>
-        <Typography className={classes.typography}>
-          The content of the Popover.
-        </Typography>
-        <Typography className={classes.typography}>
-          The content of the Popover.
-        </Typography>
+        <Typography className={classes.itemUlUnderAvatar}>Setting</Typography>
+        <Typography className={classes.itemUlUnderAvatar}>Go out</Typography>
       </Popover>
     </Box>
   );
 };
 
-{
-  /* <NavLink
-      className="link block--absolute_right_sm block--z_index_lg"
-      to="/settings"
-    >
-      
-    </NavLink> */
-}
-
 const Header = (props) => {
+  console.log(`props.login >>> ${props.login}`);
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -98,7 +91,8 @@ const Header = (props) => {
   const classes = useStyles();
 
   function checkLogin(params) {
-    console.log(params);
+    // console.log(`params: ${params}`);
+
     if (!params.isAuth === true) {
       return (
         <div>
@@ -115,56 +109,8 @@ const Header = (props) => {
         </div>
       );
     } else {
-      return <AuthAvatar />;
+      return <AuthAvatar login={params.login} />;
     }
-  }
-
-  // const [anchorEl, setAnchorEl] = React.useState(null);
-
-  // const handleClick = (event) => {
-  //   setAnchorEl(event.currentTarget);
-  // };
-
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
-
-  // const open = Boolean(anchorEl);
-  // const id = open ? "simple-popover" : undefined;
-
-  {
-    /* <Button
-                  aria-describedby={id}
-                  variant="contained"
-                  color="primary"
-                  onClick={handleClick}
-                >
-                  Open Popover
-                </Button>
-                <Popover
-                  id={id}
-                  open={open}
-                  anchorEl={anchorEl}
-                  onClose={handleClose}
-                  anchorOrigin={{
-                    vertical: "bottom",
-                    horizontal: "center",
-                  }}
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "center",
-                  }}
-                >
-                  <Typography className={classes.typography}>
-                    The content of the Popover.
-                  </Typography>
-                  <Typography className={classes.typography}>
-                    The content of the Popover.
-                  </Typography>
-                  <Typography className={classes.typography}>
-                    The content of the Popover.
-                  </Typography>
-                </Popover> */
   }
 
   return (
@@ -198,10 +144,12 @@ class HeaderContainer extends React.Component {
         withCredentials: true,
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.data.resultCode === 0) {
           let { userId, email, login } = response.data.data;
           this.props.setAuthUserData(userId, email, login);
+        } else {
+          console.log(`resiltCode NOT 0 !!!!!!!!!!!!!`);
         }
       });
   }
@@ -212,6 +160,7 @@ class HeaderContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   isAuth: state.auth.isAuth,
+  login: state.auth.login,
 });
 const mapDispatchToProps = {
   setAuthUserData,
