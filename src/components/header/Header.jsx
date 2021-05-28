@@ -74,7 +74,6 @@ const AuthAvatar = (props) => {
 };
 
 const Header = (props) => {
-  console.log(`props.login >>> ${props.login}`);
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -91,8 +90,6 @@ const Header = (props) => {
   const classes = useStyles();
 
   function checkLogin(params) {
-    // console.log(`params: ${params}`);
-
     if (!params.isAuth === true) {
       return (
         <div>
@@ -144,7 +141,6 @@ class HeaderContainer extends React.Component {
         withCredentials: true,
       })
       .then((response) => {
-        // console.log(response);
         if (response.data.resultCode === 0) {
           let { userId, email, login } = response.data.data;
           this.props.setAuthUserData(userId, email, login);

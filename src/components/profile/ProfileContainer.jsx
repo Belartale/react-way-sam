@@ -18,11 +18,13 @@ const Profile = (props) => {
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
+    let userId = this.props.match.params.userId;
+
     if (!this.props) {
-      //todo
+      userId = 16222;
     }
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
       .then((response) => {
         let realData = response.data;
         this.props.setUserProfile(realData);
