@@ -14,6 +14,7 @@ import {
 import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
+import { NavLink } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
 import { setAuthUserData } from "../../redux/authReducer";
 
@@ -93,13 +94,15 @@ const Header = (props) => {
     if (!params.isAuth === true) {
       return (
         <div>
-          <Button
-            className={classes.marginRightSmall}
-            color="secondary"
-            variant="outlined"
-          >
-            Sign in
-          </Button>
+          <NavLink to="/login">
+            <Button
+              className={classes.marginRightSmall}
+              color="secondary"
+              variant="outlined"
+            >
+              Login
+            </Button>
+          </NavLink>
           <Button color="secondary" variant="contained">
             Create account
           </Button>
@@ -142,8 +145,8 @@ class HeaderContainer extends React.Component {
       })
       .then((response) => {
         if (response.data.resultCode === 0) {
-          let { userId, email, login } = response.data.data;
-          this.props.setAuthUserData(userId, email, login);
+          let { id, email, login } = response.data.data;
+          this.props.setAuthUserData(id, email, login);
         } else {
           console.log(`resiltCode NOT 0 !!!!!!!!!!!!!`);
         }
