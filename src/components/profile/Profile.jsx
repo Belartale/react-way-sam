@@ -20,7 +20,7 @@ class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
 
-    if (!this.props) {
+    if (!userId) {
       userId = 16222;
     }
     axios

@@ -1,17 +1,9 @@
 import React from "react";
 import Nav from "./nav/Nav";
 import Friends from "./friends/Friends";
-import { makeStyles, Paper } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 
 const SideBar = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    sideColor: {
-      backgroundColor: "red",
-    },
-  }));
-
-  const classes = useStyles();
-
   let sideBar = " side_bar block block--indents_md";
 
   return (
