@@ -12,8 +12,7 @@ const SideBar = (props) => {
 
   const classes = useStyles();
 
-  let sideBar = classes.sideColor;
-  sideBar += "side_bar block block--indents_md";
+  let sideBar = " side_bar block block--indents_md";
 
   return (
     <Paper className={sideBar} elevation={3}>

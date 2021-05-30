@@ -22,10 +22,11 @@ import News from "./components/news/News";
 import Music from "./components/music/Music";
 import Settings from "./components/settings/Settings";
 
-import ProfileContainer from "./components/profile/ProfileContainer";
+import Profile from "./components/profile/Profile";
 import UsersContainer from "./components/users/UsersContainer";
 
 import { BrowserRouter, Route } from "react-router-dom";
+import { Paper } from "@material-ui/core";
 
 // import { Box, Button, Container } from "@material-ui/core";
 // import { AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
@@ -37,15 +38,18 @@ const App = (props) => {
     <BrowserRouter>
       <div className="wrapper__page">
         <HeaderContainer />
-        <SideBar sideBar={state.sideBar} />
-        <div className="wrapper__content wrapper__content--padding_sm">
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+        <SideBar className="side_bar" sideBar={state.sideBar} />
+        <Paper
+          className="wrapper__content wrapper__content--padding_sm"
+          elevation={3}
+        >
+          <Route path="/profile/:userId?" render={() => <Profile />} />
           <Route path="/dialogs" render={() => <DialogsContainer />} />
           <Route path="/news" render={News} />
           <Route path="/music" render={Music} />
           <Route path="/settings" render={Settings} />
           <Route path="/users" render={() => <UsersContainer />} />
-        </div>
+        </Paper>
       </div>
     </BrowserRouter>
   );
