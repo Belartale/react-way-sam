@@ -48,18 +48,43 @@ class UsersAPIComponent extends React.Component {
     return u.followed ? (
       <button
         onClick={() => {
-          this.props.unfollow(u.id);
+          axios
+            .delete(
+              `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+              {
+                withCredentials: true,
+                headers: { "API-KEY": "7932c2b0-d1ab-490b-8f01-2f9e05b0b88d" },
+              }
+            )
+            .then((response) => {
+              if (response.data.resultCode == 0) {
+                this.props.unfollow(u.id);
+              }
+            });
         }}
       >
-        Unfollowed
+        Unfollow
       </button>
     ) : (
       <button
         onClick={() => {
-          this.props.follow(u.id);
+          axios
+            .post(
+              `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+              {},
+              {
+                withCredentials: true,
+                headers: { "API-KEY": "7932c2b0-d1ab-490b-8f01-2f9e05b0b88d" },
+              }
+            )
+            .then((response) => {
+              if (response.data.resultCode == 0) {
+                this.props.follow(u.id);
+              }
+            });
         }}
       >
-        Followed
+        Follow
       </button>
     );
   };
