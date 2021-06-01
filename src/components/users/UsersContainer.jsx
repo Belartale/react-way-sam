@@ -14,34 +14,33 @@ import Users from "./Users";
 //mUI
 // import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { getUsers } from "../../api/api";
 
 //!!!!!!!!!!!!!!!
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-        this.props.setUsersTotalCount(response.data.totalCount);
-      });
+    getUsers({
+      currentPage: this.props.currentPage,
+      pageSize: this.props.pageSize,
+    }).then((response) => {
+      this.props.toggleIsFetching(false);
+      this.props.setUsers(response.data.items);
+      this.props.setUsersTotalCount(response.data.totalCount);
+    });
   }
 
   onChangePage = (page) => {
     this.props.toggleIsFetching(true);
     this.props.setCurrentPage(page);
-    axios
-      .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`
-      )
-      .then((response) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(response.data.items);
-      });
+    getUsers({
+      currentPage: page,
+      pageSize: this.props.pageSize,
+    }).then((response) => {
+      this.props.toggleIsFetching(false);
+      this.props.setUsers(response.data.items);
+    });
   };
 
   buttonUnFollow = (u) => {
@@ -57,7 +56,7 @@ class UsersAPIComponent extends React.Component {
               }
             )
             .then((response) => {
-              if (response.data.resultCode == 0) {
+              if (response.data.resultCode === 0) {
                 this.props.unfollow(u.id);
               }
             });
@@ -78,7 +77,7 @@ class UsersAPIComponent extends React.Component {
               }
             )
             .then((response) => {
-              if (response.data.resultCode == 0) {
+              if (response.data.resultCode === 0) {
                 this.props.follow(u.id);
               }
             });
