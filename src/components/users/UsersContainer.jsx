@@ -14,33 +14,37 @@ import Users from "./Users";
 //mUI
 // import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { getUsers } from "../../api/api";
+import { userAPI } from "../../api/api";
 
 //!!!!!!!!!!!!!!!
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
     this.props.toggleIsFetching(true);
-    getUsers({
-      currentPage: this.props.currentPage,
-      pageSize: this.props.pageSize,
-    }).then((response) => {
-      this.props.toggleIsFetching(false);
-      this.props.setUsers(response.data.items);
-      this.props.setUsersTotalCount(response.data.totalCount);
-    });
+    userAPI
+      .getUsers({
+        currentPage: this.props.currentPage,
+        pageSize: this.props.pageSize,
+      })
+      .then((data) => {
+        this.props.toggleIsFetching(false);
+        this.props.setUsers(data.items);
+        this.props.setUsersTotalCount(data.totalCount);
+      });
   }
 
   onChangePage = (page) => {
     this.props.toggleIsFetching(true);
     this.props.setCurrentPage(page);
-    getUsers({
-      currentPage: page,
-      pageSize: this.props.pageSize,
-    }).then((response) => {
-      this.props.toggleIsFetching(false);
-      this.props.setUsers(response.data.items);
-    });
+    userAPI
+      .getUsers({
+        currentPage: page,
+        pageSize: this.props.pageSize,
+      })
+      .then((data) => {
+        this.props.toggleIsFetching(false);
+        this.props.setUsers(data.items);
+      });
   };
 
   buttonUnFollow = (u) => {
