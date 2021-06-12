@@ -7,6 +7,7 @@ import {
   setCurrentPage,
   setUsersTotalCount,
   toggleIsFetching,
+  toggleFollowingProgress,
 } from "../../redux/usersReducer";
 import * as axios from "axios";
 import Users from "./Users";
@@ -131,6 +132,7 @@ const mapDispatchToProps = {
   setCurrentPage,
   setUsersTotalCount,
   toggleIsFetching,
+  toggleFollowingProgress,
 };
 
 const UsersContainer = connect(
