@@ -39,7 +39,7 @@ let Users = (props) => {
       {props.users.map((u) => {
         return (
           <div key={u.id}>
-            {props.buttonUnFollow(u)}
+            {props.buttonFollowOrUnFollow(u)}
             <div>
               <NavLink to={`profile/${u.id}`}>
                 {checkPhoto({ photo: u.photos.small, id: u.id })}

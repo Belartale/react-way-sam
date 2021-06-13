@@ -13,9 +13,3 @@ export const userAPI = {
       .then((response) => response.data);
   },
 };
-
-// export const getUsers2 = (params) => {
-//   return instance
-//     .get(`follow?page=${params.currentPage}&count=${params.pageSize}`)
-//     .then((response) => response.data);
-// };

@@ -7,6 +7,7 @@ import {
   setCurrentPage,
   setUsersTotalCount,
   toggleIsFetching,
+  toggleIsFollowingProgress,
 } from "../../redux/usersReducer";
 import * as axios from "axios";
 import Users from "./Users";
@@ -47,10 +48,13 @@ class UsersAPIComponent extends React.Component {
       });
   };
 
-  buttonUnFollow = (u) => {
+  buttonFollowOrUnFollow = (u) => {
     return u.followed ? (
       <button
+        disabled={this.props.followingInProgress}
         onClick={() => {
+          console.log(`Unfollow`);
+          this.props.toggleIsFollowingProgress(true);
           axios
             .delete(
               `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -63,6 +67,7 @@ class UsersAPIComponent extends React.Component {
               if (response.data.resultCode === 0) {
                 this.props.unfollow(u.id);
               }
+              this.props.toggleIsFollowingProgress(false);
             });
         }}
       >
@@ -70,7 +75,10 @@ class UsersAPIComponent extends React.Component {
       </button>
     ) : (
       <button
+        disabled={this.props.followingInProgress}
         onClick={() => {
+          console.log(`Follow`);
+          this.props.toggleIsFollowingProgress(true);
           axios
             .post(
               `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -84,6 +92,7 @@ class UsersAPIComponent extends React.Component {
               if (response.data.resultCode === 0) {
                 this.props.follow(u.id);
               }
+              this.props.toggleIsFollowingProgress(false);
             });
         }}
       >
@@ -98,7 +107,7 @@ class UsersAPIComponent extends React.Component {
 
         <Users
           onChangePage={this.onChangePage}
-          buttonUnFollow={this.buttonUnFollow}
+          buttonFollowOrUnFollow={this.buttonFollowOrUnFollow}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
           setUsers={this.props.setUsers}
@@ -121,6 +130,7 @@ const mapStateProps = (state) => {
     pageSize: state.usersPage.pageSize,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress,
   };
 };
 
@@ -131,6 +141,7 @@ const mapDispatchToProps = {
   setCurrentPage,
   setUsersTotalCount,
   toggleIsFetching,
+  toggleIsFollowingProgress,
 };
 
 const UsersContainer = connect(
