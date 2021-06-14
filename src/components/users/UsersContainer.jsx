@@ -8,6 +8,7 @@ import {
   setUsersTotalCount,
   toggleIsFetching,
   toggleIsFollowingProgress,
+  getUsersThunkCreator,
 } from "../../redux/usersReducer";
 import * as axios from "axios";
 import Users from "./Users";
@@ -21,17 +22,18 @@ import { userAPI } from "../../api/api";
 
 class UsersAPIComponent extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
-    userAPI
-      .getUsers({
-        currentPage: this.props.currentPage,
-        pageSize: this.props.pageSize,
-      })
-      .then((data) => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(data.items);
-        this.props.setUsersTotalCount(data.totalCount);
-      });
+    // this.props.toggleIsFetching(true);
+    // userAPI
+    //   .getUsers({
+    //     currentPage: this.props.currentPage,
+    //     pageSize: this.props.pageSize,
+    //   })
+    //   .then((data) => {
+    //     this.props.toggleIsFetching(false);
+    //     this.props.setUsers(data.items);
+    //     this.props.setUsersTotalCount(data.totalCount);
+    //   });
+    this.props.getUsersThunkCreator();
   }
 
   onChangePage = (page) => {
@@ -53,7 +55,6 @@ class UsersAPIComponent extends React.Component {
       <button
         disabled={this.props.followingInProgress.some((id) => id === u.id)}
         onClick={() => {
-          console.log(`Unfollow`);
           this.props.toggleIsFollowingProgress({
             isFetching: true,
             userId: u.id,
@@ -83,7 +84,6 @@ class UsersAPIComponent extends React.Component {
       <button
         disabled={this.props.followingInProgress.some((id) => id === u.id)}
         onClick={() => {
-          console.log(`Follow`);
           this.props.toggleIsFollowingProgress({
             isFetching: true,
             userId: u.id,

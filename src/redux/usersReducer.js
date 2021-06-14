@@ -91,4 +91,18 @@ export let toggleIsFollowingProgress = (params) => ({
   isFetching: params.isFetching,
   userId: params.userId,
 });
+
+export const getUsersThunkCreator = () => {
+  dispatch(toggleIsFetching(true));
+  userAPI
+    .getUsers({
+      currentPage: this.props.currentPage,
+      pageSize: this.props.pageSize,
+    })
+    .then((data) => {
+      dispatch(toggleIsFetching(false));
+      dispatch(setUsers(data.items));
+      dispatch(setUsersTotalCount(data.totalCount));
+    });
+};
 export default usersReducer;
