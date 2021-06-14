@@ -7,7 +7,7 @@ import {
   setCurrentPage,
   setUsersTotalCount,
   toggleIsFetching,
-  toggleFollowingProgress,
+  toggleIsFollowingProgress,
 } from "../../redux/usersReducer";
 import * as axios from "axios";
 import Users from "./Users";
@@ -48,10 +48,16 @@ class UsersAPIComponent extends React.Component {
       });
   };
 
-  buttonUnFollow = (u) => {
+  buttonFollowOrUnFollow = (u) => {
     return u.followed ? (
       <button
+        disabled={this.props.followingInProgress.some((id) => id === u.id)}
         onClick={() => {
+          console.log(`Unfollow`);
+          this.props.toggleIsFollowingProgress({
+            isFetching: true,
+            userId: u.id,
+          });
           axios
             .delete(
               `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -64,6 +70,10 @@ class UsersAPIComponent extends React.Component {
               if (response.data.resultCode === 0) {
                 this.props.unfollow(u.id);
               }
+              this.props.toggleIsFollowingProgress({
+                isFetching: false,
+                userId: u.id,
+              });
             });
         }}
       >
@@ -71,7 +81,13 @@ class UsersAPIComponent extends React.Component {
       </button>
     ) : (
       <button
+        disabled={this.props.followingInProgress.some((id) => id === u.id)}
         onClick={() => {
+          console.log(`Follow`);
+          this.props.toggleIsFollowingProgress({
+            isFetching: true,
+            userId: u.id,
+          });
           axios
             .post(
               `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
@@ -85,6 +101,10 @@ class UsersAPIComponent extends React.Component {
               if (response.data.resultCode === 0) {
                 this.props.follow(u.id);
               }
+              this.props.toggleIsFollowingProgress({
+                isFetching: false,
+                userId: u.id,
+              });
             });
         }}
       >
@@ -99,7 +119,7 @@ class UsersAPIComponent extends React.Component {
 
         <Users
           onChangePage={this.onChangePage}
-          buttonUnFollow={this.buttonUnFollow}
+          buttonFollowOrUnFollow={this.buttonFollowOrUnFollow}
           follow={this.props.follow}
           unfollow={this.props.unfollow}
           setUsers={this.props.setUsers}
@@ -122,6 +142,7 @@ const mapStateProps = (state) => {
     pageSize: state.usersPage.pageSize,
     currentPage: state.usersPage.currentPage,
     isFetching: state.usersPage.isFetching,
+    followingInProgress: state.usersPage.followingInProgress,
   };
 };
 
@@ -132,7 +153,7 @@ const mapDispatchToProps = {
   setCurrentPage,
   setUsersTotalCount,
   toggleIsFetching,
-  toggleFollowingProgress,
+  toggleIsFollowingProgress,
 };
 
 const UsersContainer = connect(
